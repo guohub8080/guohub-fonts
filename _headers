@@ -1,0 +1,10 @@
+# Cloudflare Pages 自定义响应头
+# 字体分片（woff2）内容基本不变：给一天的浏览器缓存，回访零请求；
+# 不用 max-age=31536000/immutable——CJK 重新分片后文件名不变但内容会变，
+# 一天是「新鲜度」与「零协商请求」之间的安全折中（发布纪律靠 tag bump 兜底）。
+
+/cjk/*
+  Cache-Control: public, max-age=86400
+
+/english/*/files/*
+  Cache-Control: public, max-age=86400
