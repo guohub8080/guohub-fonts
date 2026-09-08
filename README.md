@@ -19,31 +19,20 @@ guohub-fonts/
   fonts.css            # 全量入口（调试用；主站默认不用它，按族懒加载）
 ```
 
-## 字体清单与许可
+## 字体清单与许可（41 族）
 
-| 分区 | 目录 | 字体 | 许可证 | 公开分发 |
-|---|---|---|---|---|
-| CJK | `cjk/minsans/` | MiSans（小米） | 免费商用 | ⚠️ 见官方条款 |
-| CJK | `cjk/syht-cn/` | 思源黑体 CN VF | SIL OFL | ✅ |
-| CJK | `cjk/syst-cn/` | 思源宋体 CN VF | SIL OFL | ✅ |
-| 英文 | `english/jb-mono/` | JetBrains Mono | SIL OFL | ✅ |
-| 英文 | `english/cascadia-mono-v/` | Cascadia Mono VF（微软开源，Consolas 继任） | SIL OFL | ✅ |
-| 英文 | `english/source-serif-4-v/` | Source Serif 4 VF（opsz+wght+斜体） | SIL OFL | ✅ |
-| 英文 | `english/newsreader-v/` | Newsreader VF（opsz+wght+斜体） | SIL OFL | ✅ |
-| 英文 | `english/literata-v/` | Literata VF（opsz+wght+斜体） | SIL OFL | ✅ |
-| 英文 | `english/source-sans-3-v/` | Source Sans 3 VF（思源拉丁版，wght+斜体） | SIL OFL | ✅ |
-| 英文 | `english/inter-v/` | Inter VF（wght） | SIL OFL | ✅ |
-| 英文 | `english/public-sans-v/` | Public Sans VF（wght+wdth） | SIL OFL | ✅ |
-| 英文 | `english/work-sans-v/` | Work Sans VF（wght） | SIL OFL | ✅ |
-| 英文 | `english/ibm-plex-sans/` | IBM Plex Sans（静态字重，无 VF 发行） | SIL OFL | ✅ |
-| 英文 | `english/ibm-plex-serif/` | IBM Plex Serif（静态字重，无 VF 发行） | SIL OFL | ✅ |
-| 英文 | `english/ibm-plex-mono/` | IBM Plex Mono（静态字重，无 VF 发行） | SIL OFL | ✅ |
-| 英文 | `english/libre-baskerville/` | Libre Baskerville（静态 400/700） | SIL OFL | ✅ |
-| 英文 | `english/dm-serif-display/` | DM Serif Display（静态 400+斜体，大标题用） | SIL OFL | ✅ |
+| 分区 | 字族 | 许可证 |
+|---|---|---|
+| CJK | `cjk/minsans`（MiSans VF v4.009）、`cjk/syht-cn`（思源黑体 CN VF v2.005）、`cjk/syst-cn`（思源宋体 CN VF v2.003）——均 cn-font-split 分片 | MiSans ⚠️ 免费商用见条款；思源 SIL OFL ✅ |
+| CJK | `cjk/smiley-sans`（得意黑 v2.0.1，静态 1.3MB 直存） | SIL OFL ✅ |
+| 等宽 | `jb-mono`、`cascadia-mono-v`、`fira-code-v`、`inconsolata-v`、`martian-mono-v`、`spline-sans-mono-v`、`ibm-plex-mono`（静态） | SIL OFL ✅ |
+| Sans VF | `inter-v`、`source-sans-3-v`、`noto-sans-v`、`roboto-flex-v`、`open-sans-v`、`montserrat-v`、`raleway-v`、`manrope-v`、`space-grotesk-v`、`outfit-v`、`plus-jakarta-sans-v`、`oswald-v`、`archivo-v`、`public-sans-v`、`work-sans-v` | SIL OFL ✅ |
+| Serif VF | `source-serif-4-v`、`newsreader-v`、`literata-v`、`noto-serif-v`、`roboto-serif-v`、`lora-v`、`playfair-display-v`、`merriweather-v`、`fraunces-v`、`crimson-pro-v`、`bitter-v` | SIL OFL ✅ |
+| 静态 | `ibm-plex-sans`、`ibm-plex-serif`、`libre-baskerville`、`dm-serif-display` | SIL OFL ✅ |
 
 > 命名规范：目录名 = CSS family 名，全小写、连字符；**VF 以 `-v` 结尾**（inter-v），静态字重版不带（ibm-plex-mono）。
-> 微软 Consolas 等专有字体**禁止**加入本仓库。JP 族已砍掉（中文内容用不上，需要时从 git 历史或 Adobe releases 恢复）。
-> 拉丁字族由 `pnpm sync:latin` 从 fontsource 包同步（family 名重写为规范名，分片只留 latin/latin-ext）。
+> 微软 Consolas 等专有字体**禁止**加入本仓库。JP 族已砍掉（中文内容用不上）。
+> 拉丁字族由 `pnpm sync:latin`（= `node scripts/sync-latin.mjs`）从 fontsource 同步；`ubuntu`/`barlow` 因 fontsource 无 VF 包未收录。
 
 ## 分片策略（fonts.config.json）
 

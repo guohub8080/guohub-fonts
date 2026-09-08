@@ -1,0 +1,7 @@
+# 声明本目录为 pnpm workspace 根：
+# 防止 pnpm 向上找到 ~/package.json 把依赖装进家目录的 node_modules（曾导致 cn-font-split FFI/WASM 异常）
+packages: []
+allowBuilds:
+  cn-font-split: set this to true or false
+  koffi: set this to true or false
+  protobufjs: set this to true or false

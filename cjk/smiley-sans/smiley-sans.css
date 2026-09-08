@@ -1,0 +1,10 @@
+/* 得意黑 Smiley Sans v2.0.1（SIL OFL，斜体风格标题字）
+ * 注意：官方发行是静态单字重（非 VF，故命名不带 -v），1.3MB 单文件直存不分片。
+ * 源下载：https://github.com/atelier-anchor/smiley-sans/releases（zip 内自带 woff2） */
+@font-face {
+  font-family: 'smiley-sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./smiley-sans.woff2') format('woff2');
+}

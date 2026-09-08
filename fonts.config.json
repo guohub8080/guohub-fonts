@@ -43,6 +43,14 @@
     },
     {
       "type": "copy",
+      "name": "smiley-sans",
+      "label": "得意黑 Smiley Sans v2.0.1（SIL OFL，斜体风格标题字；官方为静态单字重，1.3MB 直存不分片，故命名不带 -v）",
+      "source": "sources/cjk/SmileySans-Oblique.otf.woff2",
+      "target": "cjk/smiley-sans/",
+      "note": "官方 zip 自带 woff2，直接拷贝；@font-face 声明在手写的 cjk/smiley-sans/smiley-sans.css。更新：重下 release zip 后把 SmileySans-Oblique.otf.woff2 放入 sources/cjk/ 并 pnpm build"
+    },
+    {
+      "type": "copy",
       "name": "jb-mono",
       "label": "JetBrains Mono（SIL OFL，等宽拉丁字体，~200KB 无需分片）",
       "source": "sources/english/jb-mono/",

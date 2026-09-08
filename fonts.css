@@ -1,21 +1,49 @@
-/* 全量入口（调试用）。主站默认不引用本文件——
-   它按「族」懒加载各目录的 result.css，见主仓库 webfontLoader.ts。
-   注意：Consolas（微软专有）不允许公开分发，已移除；
-   JP 两族已砍掉（中文内容用不上，见 git 历史）。 */
+/* 全量入口（调试/预览页用）。主站默认不引用本文件——
+   它按「族」懒加载各目录的 css，见主仓库 webfontLoader.ts。
+   生成提示：拉丁字族清单与 scripts/sync-latin.mjs 保持同步。 */
+/* ---- CJK ---- */
 @import url('./cjk/minsans/result.css');
 @import url('./cjk/syht-cn/result.css');
 @import url('./cjk/syst-cn/result.css');
+@import url('./cjk/smiley-sans/smiley-sans.css');
+/* ---- 等宽 ---- */
 @import url('./english/jb-mono/jb-mono.css');
 @import url('./english/cascadia-mono-v/cascadia-mono-v.css');
+@import url('./english/fira-code-v/fira-code-v.css');
+@import url('./english/inconsolata-v/inconsolata-v.css');
+@import url('./english/martian-mono-v/martian-mono-v.css');
+@import url('./english/spline-sans-mono-v/spline-sans-mono-v.css');
+@import url('./english/ibm-plex-mono/ibm-plex-mono.css');
+/* ---- Sans VF ---- */
+@import url('./english/inter-v/inter-v.css');
+@import url('./english/source-sans-3-v/source-sans-3-v.css');
+@import url('./english/noto-sans-v/noto-sans-v.css');
+@import url('./english/roboto-flex-v/roboto-flex-v.css');
+@import url('./english/open-sans-v/open-sans-v.css');
+@import url('./english/montserrat-v/montserrat-v.css');
+@import url('./english/raleway-v/raleway-v.css');
+@import url('./english/manrope-v/manrope-v.css');
+@import url('./english/space-grotesk-v/space-grotesk-v.css');
+@import url('./english/outfit-v/outfit-v.css');
+@import url('./english/plus-jakarta-sans-v/plus-jakarta-sans-v.css');
+@import url('./english/oswald-v/oswald-v.css');
+@import url('./english/archivo-v/archivo-v.css');
+@import url('./english/public-sans-v/public-sans-v.css');
+@import url('./english/work-sans-v/work-sans-v.css');
+/* ---- Serif VF ---- */
 @import url('./english/source-serif-4-v/source-serif-4-v.css');
 @import url('./english/newsreader-v/newsreader-v.css');
 @import url('./english/literata-v/literata-v.css');
-@import url('./english/source-sans-3-v/source-sans-3-v.css');
-@import url('./english/inter-v/inter-v.css');
-@import url('./english/public-sans-v/public-sans-v.css');
-@import url('./english/work-sans-v/work-sans-v.css');
+@import url('./english/noto-serif-v/noto-serif-v.css');
+@import url('./english/roboto-serif-v/roboto-serif-v.css');
+@import url('./english/lora-v/lora-v.css');
+@import url('./english/playfair-display-v/playfair-display-v.css');
+@import url('./english/merriweather-v/merriweather-v.css');
+@import url('./english/fraunces-v/fraunces-v.css');
+@import url('./english/crimson-pro-v/crimson-pro-v.css');
+@import url('./english/bitter-v/bitter-v.css');
+/* ---- 静态（无 VF 发行） ---- */
 @import url('./english/ibm-plex-sans/ibm-plex-sans.css');
 @import url('./english/ibm-plex-serif/ibm-plex-serif.css');
-@import url('./english/ibm-plex-mono/ibm-plex-mono.css');
 @import url('./english/libre-baskerville/libre-baskerville.css');
 @import url('./english/dm-serif-display/dm-serif-display.css');

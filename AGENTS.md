@@ -20,7 +20,12 @@ node scripts/sync-latin.mjs   # 拉丁字族同步（⚠️ 直接 node 执行�
 **已知坑（务必绕开）**：
 
 1. **`pnpm run` 会 OOM**：pnpm v11 的依赖预检全量扫描 node_modules（cn-font-split/fontsource 海量小文件）时内存爆炸（137 秒后 heap OOM）。执行 script 一律直接 `node scripts/xxx.mjs` 或等价 shell 命令。
-2. **cn-font-split 必须用 WASM 入口**：包主入口（`cn-font-split`）的 Node FFI 后端依赖未随包分发的 libffi dylib，异步崩溃（ERR_FFI/OOM）。构建脚本已用 `cn-font-split/dist/wasm/index.mjs`，不要改回主入口。
+2. **cn-font-split 的 Node 侧当前全线不可用**（7.4.0/7.4.3 均如此，Node 22/23/Bun 都试过）：
+   - 主入口（`cn-font-split`）走 Node FFI，但 `libffi-aarch64-apple-darwin.dylib` 不随 npm 包发布 → ERR_FFI 异步崩溃；
+   - WASM 入口（`dist/wasm/index.mjs`）的 `fontSplit` 需要传入 `wasm: new StaticWasm(buffer)`，而 wasm 二进制（`libffi-wasm32-wasip1.wasm`）也不随包发布，官方 CLI 下载命令 `cn-font-split i wasm32-wasip1` 本身打包损坏（ERR_MODULE_NOT_FOUND）、GitHub releases 亦无该资产；
+   - **结论：`fonts[]` 里的 `split` 任务目前跑不通**（栈会崩在 wasm 初始化），CJK 三族的分片产物是历史生成的存量。新增 CJK 小字体走「woff2 直存 + 手写 css」的 copy/直存路径（参考 smiley-sans）。等 cn-font-split 修复后恢复 split 链路。
+3. **pnpm workspace 根污染**：家目录 `~/package.json` 曾让 pnpm 把本仓库依赖装进 `~/node_modules`（引发各种诡异路径）。已用根目录 `pnpm-workspace.yaml`（`packages: []`）自立门户——**不要删除该文件**。
+4. **fontsource 无 VF 包的字体**（如 ubuntu、barlow）不能强行 `@fontsource-variable/` 安装（404），只能静态收录或不收。
 
 ## 目录结构与两类任务
 

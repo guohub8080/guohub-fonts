@@ -3,99 +3,314 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>guohub-fonts · 字体库预览</title>
+  <title>guohub-fonts · 字体样张</title>
   <link rel="stylesheet" href="./fonts.css">
   <style>
-    :root { color-scheme: light dark; }
-    body {
-      margin: 0 auto;
-      max-width: 860px;
-      padding: 32px 20px calc(32px + env(safe-area-inset-bottom));
-      font-family: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
-      line-height: 1.6;
+    :root {
+      --bg: #0d1017;
+      --panel: #151a23;
+      --panel-2: #1a2029;
+      --line: #262d39;
+      --ink: #e8ebf1;
+      --ink-dim: #8b94a3;
+      --accent: #6ea8fe;
+      --accent-2: #b18cff;
+      --mono: ui-monospace, "SF Mono", Menlo, monospace;
     }
-    header { border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent); padding-bottom: 16px; margin-bottom: 28px; }
-    h1 { font-size: 24px; margin: 0 0 4px; }
-    header p { margin: 0; opacity: .65; font-size: 14px; }
-    section { margin-bottom: 28px; }
-    .fam { font-size: 13px; opacity: .6; font-family: ui-monospace, Menlo, monospace; }
-    .demo { margin: 4px 0 0; font-size: 19px; }
-    .w300 { font-weight: 300; }
-    .w500 { font-weight: 500; }
-    .w700 { font-weight: 700; }
-    .sans  { font-family: "minsans-v", sans-serif; }
-    .syht  { font-family: "syht-cn-v", sans-serif; }
-    .syst  { font-family: "syst-cn-v", serif; }
-    .jbm   { font-family: "jb-mono", monospace; }
-    .casc  { font-family: "cascadia-mono-v", monospace; }
-    footer { font-size: 13px; opacity: .55; border-top: 1px solid color-mix(in srgb, currentColor 15%, transparent); padding-top: 14px; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(1200px 500px at 80% -10%, rgba(110, 168, 254, .12), transparent 60%),
+        radial-gradient(900px 400px at 10% -5%, rgba(177, 140, 255, .10), transparent 55%),
+        var(--bg);
+      color: var(--ink);
+      font-family: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.5;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 64px 24px 28px;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, var(--ink) 30%, var(--accent) 70%, var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero p { margin: 10px 0 0; color: var(--ink-dim); font-size: 15px; max-width: 640px; }
+    .stats { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
+    .stat b { font-size: 26px; font-weight: 700; color: var(--ink); }
+    .stat span { display: block; font-size: 12px; color: var(--ink-dim); margin-top: 2px; }
+
+    /* ---------- 字重滑杆（VF 交互） ---------- */
+    .weight-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(13, 16, 23, .78);
+      border-bottom: 1px solid var(--line);
+    }
+    .weight-bar-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 12px 24px calc(12px);
+      padding-bottom: calc(12px + env(safe-area-inset-bottom) / 8);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .weight-bar label { font-size: 13px; color: var(--ink-dim); white-space: nowrap; }
+    .weight-bar output {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      min-width: 3.2em;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    input[type="range"] {
+      flex: 1;
+      appearance: none;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--accent);
+      cursor: grab;
+    }
+    .weight-note { font-size: 12px; color: var(--ink-dim); white-space: nowrap; }
+
+    /* ---------- 分区 ---------- */
+    main { max-width: 1080px; margin: 0 auto; padding: 8px 24px calc(64px + env(safe-area-inset-bottom)); }
+    section { margin-top: 40px; }
+    .sec-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+    .sec-head h2 { margin: 0; font-size: 18px; font-weight: 650; }
+    .sec-head small { color: var(--ink-dim); font-size: 12.5px; }
+
+    /* ---------- 字族卡片 ---------- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+    .card {
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px 16px;
+      transition: border-color .18s, transform .18s;
+      overflow: hidden;
+    }
+    .card:hover { border-color: #3a4757; transform: translateY(-2px); }
+    .fam {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .fam .tag {
+      font-family: inherit;
+      font-size: 10.5px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--ink-dim);
+    }
+    .spec { font-size: 22px; line-height: 1.45; margin: 0; overflow-wrap: anywhere; }
+    .spec-sub {
+      font-size: 13.5px;
+      color: var(--ink-dim);
+      margin: 6px 0 0;
+      line-height: 1.4;
+    }
+    .row-3 { display: flex; gap: 14px; margin-top: 10px; color: var(--ink-dim); font-size: 13px; }
+    .row-3 em { font-style: normal; }
+    .w3 { font-weight: 300; } .w5 { font-weight: 500; } .w8 { font-weight: 800; }
+    .vf .spec { font-weight: var(--demo-w, 500); }
+
+    footer {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 20px 24px calc(40px + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line);
+      color: var(--ink-dim);
+      font-size: 12.5px;
+      font-family: var(--mono);
+      line-height: 1.7;
+    }
+    @media (max-width: 480px) { .spec { font-size: 19px; } .weight-note { display: none; } }
   </style>
 </head>
 <body>
-  <header>
-    <h1>guohub-fonts</h1>
-    <p>guohub 的 web 字体库。本页即自检页：所有字族正常渲染 = 本仓库在该 CDN 上可用。</p>
-  </header>
 
+<header class="hero">
+  <h1>guohub-fonts</h1>
+  <p>guohub 的 web 字体库：CJK 分片 + fontsource VF 字族，多 CDN 四层自动降级，按族懒加载零默认流量。本页即自检页——所有样张正常渲染 = 本 CDN 节点可用。</p>
+  <div class="stats">
+    <div class="stat"><b>41</b><span>字族</span></div>
+    <div class="stat"><b>31</b><span>可变字体（VF）</span></div>
+    <div class="stat"><b>4</b><span>CDN 降级层</span></div>
+    <div class="stat"><b>0</b><span>默认字体流量</span></div>
+  </div>
+</header>
+
+<div class="weight-bar">
+  <div class="weight-bar-inner">
+    <label for="w">VF 字重</label>
+    <input type="range" id="w" min="100" max="900" step="10" value="500" aria-label="可变字体字重">
+    <output for="w" id="w-out">500</output>
+    <span class="weight-note">拖动实时预览全部可变字族</span>
+  </div>
+</div>
+
+<main>
   <section>
-    <div class="fam">cjk/minsans — MiSans VF（v4.009）</div>
-    <p class="demo sans w300">永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭 — MiSans 300</p>
-    <p class="demo sans w500"> vite 8 · react 19 · Jotai — MiSans 500</p>
-    <p class="demo sans w700"> 骨骼惊奇 0123456789 — MiSans 700</p>
+    <div class="sec-head"><h2>中日韩（CJK）</h2><small>cn-font-split 分片 · unicode-range 按需下载</small></div>
+    <div class="grid">
+      <div class="card vf"><div class="fam">minsans-v <span class="tag">VF · MiSans v4.009</span></div>
+        <p class="spec" style="font-family:'minsans-v',sans-serif">永和九年，岁在癸丑</p>
+        <p class="spec-sub" style="font-family:'minsans-v',sans-serif">The quick brown fox jumps over the lazy dog — 0123456789</p></div>
+      <div class="card vf"><div class="fam">syht-cn-v <span class="tag">VF · 思源黑体 v2.005</span></div>
+        <p class="spec" style="font-family:'syht-cn-v',sans-serif">清风徐来，水波不兴</p>
+        <p class="spec-sub" style="font-family:'syht-cn-v',sans-serif">Sphinx of black quartz, judge my vow</p></div>
+      <div class="card vf"><div class="fam">syst-cn-v <span class="tag">VF · 思源宋体 v2.003</span></div>
+        <p class="spec" style="font-family:'syst-cn-v',serif">落霞与孤鹜齐飞，秋水共长天一色</p>
+        <p class="spec-sub" style="font-family:'syst-cn-v',serif">Typography is the craft of endowing human language</p></div>
+      <div class="card"><div class="fam">smiley-sans <span class="tag">静态 · 得意黑 v2.0.1</span></div>
+        <p class="spec" style="font-family:'smiley-sans',sans-serif">斜体风格标题字</p>
+        <p class="spec-sub" style="font-family:'smiley-sans',sans-serif">Smiley Sans — 手写感的中文标题字体</p></div>
+    </div>
   </section>
 
   <section>
-    <div class="fam">cjk/syht-cn — 思源黑体 CN VF（v2.005）</div>
-    <p class="demo syht w300">清风徐来，水波不兴 — 思源黑体 300</p>
-    <p class="demo syht w700">山高月小，水落石出 0123456789 — 思源黑体 700</p>
+    <div class="sec-head"><h2>等宽 Mono</h2><small>代码字型 · 含连字与多轴</small></div>
+    <div class="grid">
+      <div class="card"><div class="fam">jb-mono <span class="tag">JetBrains Mono</span></div>
+        <p class="spec" style="font-family:'jb-mono',monospace">const fn = (x) =&gt; x * 42;</p>
+        <p class="spec-sub" style="font-family:'jb-mono',monospace"><i>SELECT * FROM fonts WHERE libre = true;</i></p></div>
+      <div class="card vf"><div class="fam">cascadia-mono-v <span class="tag">微软开源</span></div>
+        <p class="spec" style="font-family:'cascadia-mono-v',monospace">interface Tonic { s1..s10 }</p></div>
+      <div class="card vf"><div class="fam">fira-code-v <span class="tag">连字</span></div>
+        <p class="spec" style="font-family:'fira-code-v',monospace;font-variant-ligatures:common-ligatures">a =&gt; b !== c &amp;&amp; d</p></div>
+      <div class="card vf"><div class="fam">inconsolata-v</div>
+        <p class="spec" style="font-family:'inconsolata-v',monospace">npm i cn-font-split@7</p></div>
+      <div class="card vf"><div class="fam">martian-mono-v <span class="tag">wdth+wght</span></div>
+        <p class="spec" style="font-family:'martian-mono-v',monospace;font-stretch:90%">THE QUICK 0123</p></div>
+      <div class="card vf"><div class="fam">spline-sans-mono-v</div>
+        <p class="spec" style="font-family:'spline-sans-mono-v',monospace">git push --tags</p></div>
+      <div class="card"><div class="fam">ibm-plex-mono <span class="tag">静态</span></div>
+        <p class="spec" style="font-family:'ibm-plex-mono',monospace">const ci = true;</p></div>
+    </div>
   </section>
 
   <section>
-    <div class="fam">cjk/syst-cn — 思源宋体 CN VF（v2.003）</div>
-    <p class="demo syst w300">落霞与孤鹜齐飞，秋水共长天一色 — 思源宋体 300</p>
-    <p class="demo syst w700">渔舟唱晚，响穷彭蠡之滨 0123456789 — 思源宋体 700</p>
+    <div class="sec-head"><h2>无衬线 Sans</h2><small>全部 VF · 拖动页首滑杆变字重</small></div>
+    <div class="grid">
+      <div class="card vf"><div class="fam">inter-v <span class="tag">UI 首选</span></div>
+        <p class="spec" style="font-family:'inter-v',sans-serif">Interface first, always.</p></div>
+      <div class="card vf"><div class="fam">source-sans-3-v <span class="tag">思源拉丁</span></div>
+        <p class="spec" style="font-family:'source-sans-3-v',sans-serif">The Latin sibling of Source Han Sans</p></div>
+      <div class="card vf"><div class="fam">noto-sans-v</div>
+        <p class="spec" style="font-family:'noto-sans-v',sans-serif">Google's universal type family</p></div>
+      <div class="card vf"><div class="fam">roboto-flex-v <span class="tag">多轴实验</span></div>
+        <p class="spec" style="font-family:'roboto-flex-v',sans-serif">Flexibly Roboto, 13 axes of control</p></div>
+      <div class="card vf"><div class="fam">open-sans-v</div>
+        <p class="spec" style="font-family:'open-sans-v',sans-serif">Friendly and neutral for everything</p></div>
+      <div class="card vf"><div class="fam">montserrat-v</div>
+        <p class="spec" style="font-family:'montserrat-v',sans-serif">MONTSERRAT GEOMETRIC SANS</p></div>
+      <div class="card vf"><div class="fam">raleway-v</div>
+        <p class="spec" style="font-family:'raleway-v',sans-serif">Elegant sans-serif, near serif</p></div>
+      <div class="card vf"><div class="fam">manrope-v</div>
+        <p class="spec" style="font-family:'manrope-v',sans-serif">Modern geometric humanist</p></div>
+      <div class="card vf"><div class="fam">space-grotesk-v</div>
+        <p class="spec" style="font-family:'space-grotesk-v',sans-serif">Space Grotesk — tech-flavored</p></div>
+      <div class="card vf"><div class="fam">outfit-v</div>
+        <p class="spec" style="font-family:'outfit-v',sans-serif">Outfit your next brand</p></div>
+      <div class="card vf"><div class="fam">plus-jakarta-sans-v</div>
+        <p class="spec" style="font-family:'plus-jakarta-sans-v',sans-serif">Plus Jakarta Sans — city vibes</p></div>
+      <div class="card vf"><div class="fam">oswald-v <span class="tag">窄体</span></div>
+        <p class="spec" style="font-family:'oswald-v',sans-serif">CONDENSED HEADLINE STYLE</p></div>
+      <div class="card vf"><div class="fam">archivo-v</div>
+        <p class="spec" style="font-family:'archivo-v',sans-serif">Archivo — grotesque archive</p></div>
+      <div class="card vf"><div class="fam">public-sans-v <span class="tag">wght+wdth</span></div>
+        <p class="spec" style="font-family:'public-sans-v',sans-serif">Public Sans, for the public sector</p></div>
+      <div class="card vf"><div class="fam">work-sans-v</div>
+        <p class="spec" style="font-family:'work-sans-v',sans-serif">Work Sans — honest and warm</p></div>
+    </div>
   </section>
 
   <section>
-    <div class="fam">english/jb-mono — JetBrains Mono</div>
-    <p class="demo jbm w300">const fn = (x) =&gt; x * 42 — jb-mono italic <i>light</i></p>
-    <p class="demo jbm w700">SELECT * FROM fonts WHERE libre = true;</p>
+    <div class="sec-head"><h2>衬线 Serif</h2><small>阅读字型 · 多数带 opsz 光学尺寸轴</small></div>
+    <div class="grid">
+      <div class="card vf"><div class="fam">source-serif-4-v <span class="tag">opsz 8–60</span></div>
+        <p class="spec" style="font-family:'source-serif-4-v',serif">Source Serif — from footnote to headline</p></div>
+      <div class="card vf"><div class="fam">newsreader-v <span class="tag">opsz 6–72</span></div>
+        <p class="spec" style="font-family:'newsreader-v',serif">Newsreader, designed for on-screen news</p></div>
+      <div class="card vf"><div class="fam">literata-v</div>
+        <p class="spec" style="font-family:'literata-v',serif">Literata — book-quality screen serif</p></div>
+      <div class="card vf"><div class="fam">noto-serif-v</div>
+        <p class="spec" style="font-family:'noto-serif-v',serif">Noto Serif, the universal book face</p></div>
+      <div class="card vf"><div class="fam">roboto-serif-v <span class="tag">opsz+wght+wdth</span></div>
+        <p class="spec" style="font-family:'roboto-serif-v',serif">Roboto Serif — the companion face</p></div>
+      <div class="card vf"><div class="fam">lora-v</div>
+        <p class="spec" style="font-family:'lora-v',serif">Lora — a subtle brush-flavored serif</p></div>
+      <div class="card vf"><div class="fam">playfair-display-v</div>
+        <p class="spec" style="font-family:'playfair-display-v',serif">Playfair Display — late 18th c. style</p></div>
+      <div class="card vf"><div class="fam">merriweather-v</div>
+        <p class="spec" style="font-family:'merriweather-v',serif">Merriweather, made for screens</p></div>
+      <div class="card vf"><div class="fam">fraunces-v <span class="tag">SOFT+WONK 轴</span></div>
+        <p class="spec" style="font-family:'fraunces-v',serif">Fraunces — wonky old-style display</p></div>
+      <div class="card vf"><div class="fam">crimson-pro-v</div>
+        <p class="spec" style="font-family:'crimson-pro-v',serif">Crimson Pro — book typesetting</p></div>
+      <div class="card vf"><div class="fam">bitter-v</div>
+        <p class="spec" style="font-family:'bitter-v',serif">Bitter — slab-ish reading serif</p></div>
+      <div class="card"><div class="fam">libre-baskerville <span class="tag">静态</span></div>
+        <p class="spec" style="font-family:'libre-baskerville',serif">Libre Baskerville — classic web reading</p></div>
+      <div class="card"><div class="fam">dm-serif-display <span class="tag">静态 · 大标题</span></div>
+        <p class="spec" style="font-family:'dm-serif-display',serif">DM Serif Display</p></div>
+    </div>
   </section>
 
   <section>
-    <div class="fam">english/cascadia-mono-v — Cascadia Mono VF（200–700）</div>
-    <p class="demo casc w300">interface Tonic { stage: s1..s10 } — Cascadia 300</p>
-    <p class="demo casc w700">npm i cn-font-split@7 — Cascadia 700</p>
+    <div class="sec-head"><h2>静态无衬线</h2><small>无 VF 发行 · 按字重多文件</small></div>
+    <div class="grid">
+      <div class="card"><div class="fam">ibm-plex-sans <span class="tag">静态</span></div>
+        <p class="spec" style="font-family:'ibm-plex-sans',sans-serif">IBM Plex Sans — corporate neutrality</p></div>
+      <div class="card"><div class="fam">ibm-plex-serif <span class="tag">静态</span></div>
+        <p class="spec" style="font-family:'ibm-plex-serif',serif">IBM Plex Serif — engineered serif</p></div>
+    </div>
   </section>
+</main>
 
-  <section>
-    <div class="fam">拉丁 VF 衬线（opsz + wght，含斜体）</div>
-    <p class="demo" style="font-family: 'source-serif-4-v', serif; font-weight: 300;">Source Serif 4 — The quick brown fox jumps over the lazy dog 0123</p>
-    <p class="demo" style="font-family: 'source-serif-4-v', serif; font-weight: 800;"><i>Source Serif 4 italic 800</i></p>
-    <p class="demo" style="font-family: 'newsreader-v', serif;">Newsreader — Reading design, from 6pt to 72pt</p>
-    <p class="demo" style="font-family: 'literata-v', serif;"><i>Literata italic — book-quality text face</i></p>
-  </section>
+<footer>
+  四层 CDN：cdn.jsdelivr.net@v1.1 → fastly.jsdelivr.net@v1.1 → guohub-fonts.pages.dev → guohub8080.github.io/guohub-fonts<br>
+  命名规范：全小写连字符；VF 以 -v 结尾，静态不带。清单与同步链路见 scripts/sync-latin.mjs / fonts.config.json
+</footer>
 
-  <section>
-    <div class="fam">拉丁 VF 无衬线（wght）</div>
-    <p class="demo" style="font-family: 'source-sans-3-v', sans-serif; font-weight: 200;">Source Sans 3 — the Latin sibling of Source Han Sans</p>
-    <p class="demo" style="font-family: 'inter-v', sans-serif; font-weight: 800;">Inter 800 — UI-first typeface</p>
-    <p class="demo" style="font-family: 'public-sans-v', sans-serif;">Public Sans — wght + wdth axes</p>
-    <p class="demo" style="font-family: 'work-sans-v', sans-serif;">Work Sans — from 300 to 900</p>
-  </section>
-
-  <section>
-    <div class="fam">静态字重（无 VF 发行）</div>
-    <p class="demo" style="font-family: 'ibm-plex-sans', sans-serif;">IBM Plex Sans — corporate neutrality 400</p>
-    <p class="demo" style="font-family: 'ibm-plex-serif', serif;">IBM Plex Serif — engineered serif</p>
-    <p class="demo" style="font-family: 'ibm-plex-mono', monospace;">IBM Plex Mono — const ci = true;</p>
-    <p class="demo" style="font-family: 'libre-baskerville', serif;">Libre Baskerville — classic web reading 400/700</p>
-    <p class="demo" style="font-family: 'dm-serif-display', serif; font-size: 26px;">DM Serif Display — Headline Only</p>
-  </section>
-
-  <footer>
-    四层 CDN：cdn.jsdelivr.net → fastly.jsdelivr.net → guohub-fonts.pages.dev → guohub8080.github.io/guohub-fonts<br>
-    使用方按族懒加载（见 guookcase 主仓库 webfontLoader.ts）；本页为全量调试入口（fonts.css）。
-  </footer>
+<script>
+  // VF 字重滑杆：全页可变字族实时联动（写 CSS 变量，浏览器仅重绘不回流布局树外样式）
+  const w = document.getElementById('w');
+  const out = document.getElementById('w-out');
+  const apply = () => {
+    document.documentElement.style.setProperty('--demo-w', w.value);
+    out.textContent = w.value;
+  };
+  w.addEventListener('input', apply);
+  apply();
+</script>
 </body>
 </html>
