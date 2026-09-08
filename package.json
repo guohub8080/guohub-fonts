@@ -1,0 +1,28 @@
+{
+  "name": "guohub-fonts",
+  "version": "1.0.0",
+  "description": "guohub 个人 web 字体仓库：CJK 字体 cn-font-split 分片构建 + 多 CDN 分发",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "sync:latin": "node scripts/sync-latin.mjs"
+  },
+  "license": "SEE LICENSE IN README.md",
+  "devDependencies": {
+    "@fontsource-variable/cascadia-mono": "^5.3.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/literata": "^5.3.0",
+    "@fontsource-variable/newsreader": "^5.3.0",
+    "@fontsource-variable/public-sans": "^5.3.0",
+    "@fontsource-variable/source-sans-3": "^5.3.0",
+    "@fontsource-variable/source-serif-4": "^5.3.0",
+    "@fontsource-variable/work-sans": "^5.3.0",
+    "@fontsource/dm-serif-display": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@fontsource/ibm-plex-serif": "^5.3.0",
+    "@fontsource/libre-baskerville": "^5.3.0",
+    "cn-font-split": "^7.4.3"
+  }
+}

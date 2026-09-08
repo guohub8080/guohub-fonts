@@ -1,0 +1,63 @@
+{
+  "comment": "字体构建任务清单。改动后跑 pnpm build 重新分片，产物直接提交，然后按 README 流程打 tag 发布。目录按用途分区：cjk/（中日韩 CJK 分片）、english/（英文/等宽）、symbols/（符号，预留）。",
+  "defaults": {
+    "targetType": "woff2",
+    "css": {
+      "fontDisplay": "swap",
+      "compress": true
+    },
+    "testHtml": false,
+    "reporter": false,
+    "languageAreas": true,
+    "autoSubset": true,
+    "reduceMins": true,
+    "fontFeature": true
+  },
+  "fonts": [
+    {
+      "type": "split",
+      "name": "minsans",
+      "label": "MiSans VF v4.009（小米，免费商用；产物出处，下载后以此为准）",
+      "source": "sources/cjk/MiSans-VF.ttf",
+      "outDir": "cjk/minsans",
+      "family": "minsans-v",
+      "download": "https://hyperos.mi.com/font/"
+    },
+    {
+      "type": "split",
+      "name": "syht-cn",
+      "label": "思源黑体 CN VF v2.005（SIL OFL，区域版可变字体单文件）",
+      "source": "sources/cjk/SourceHanSansCN-VF.otf",
+      "outDir": "cjk/syht-cn",
+      "family": "syht-cn-v",
+      "download": "https://github.com/adobe-fonts/source-han-sans/releases"
+    },
+    {
+      "type": "split",
+      "name": "syst-cn",
+      "label": "思源宋体 CN VF v2.003（SIL OFL，区域版可变字体单文件）",
+      "source": "sources/cjk/SourceHanSerifCN-VF.otf",
+      "outDir": "cjk/syst-cn",
+      "family": "syst-cn-v",
+      "download": "https://github.com/adobe-fonts/source-han-serif/releases"
+    },
+    {
+      "type": "copy",
+      "name": "jb-mono",
+      "label": "JetBrains Mono（SIL OFL，等宽拉丁字体，~200KB 无需分片）",
+      "source": "sources/english/jb-mono/",
+      "target": "english/jb-mono/",
+      "note": "产物即源（等宽拉丁字体无需分片，woff2 直存）：english/jb-mono/ 里的 woff2 已进 git，sources/ 平时留空；仅升级版本时把新 woff2 放入 sources/english/jb-mono/ 后 pnpm build 覆盖"
+    }
+  ],
+
+  "syncTasks": [
+    {
+      "name": "latin-bundle",
+      "label": "拉丁字族批量包（fontsource 同步）：8 个 VF（cascadia-mono-v / source-serif-4-v / newsreader-v / literata-v / source-sans-3-v / inter-v / public-sans-v / work-sans-v）+ 5 个静态（ibm-plex-sans / ibm-plex-serif / ibm-plex-mono / libre-baskerville / dm-serif-display），均 SIL OFL",
+      "family": "见 scripts/sync-latin.mjs 的 FONTS 清单（目录名 = family 名，全小写连字符，VF 以 -v 结尾）",
+      "command": "pnpm sync:latin",
+      "note": "产物由 fontsource 包生成，css 中 family 名重写为规范名；分片只保留 latin/latin-ext subset（KEEP_SUBSETS 可调）；更新流程：pnpm update 后重跑"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+node_modules/
+sources/**/*.otf
+sources/**/*.ttf
+sources/**/*.otc
+sources/**/*.ttc
+sources/**/*.woff
+sources/**/*.woff2
+.DS_Store

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>guohub-fonts · 字体库预览</title>
+  <link rel="stylesheet" href="./fonts.css">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0 auto;
+      max-width: 860px;
+      padding: 32px 20px calc(32px + env(safe-area-inset-bottom));
+      font-family: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+    }
+    header { border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent); padding-bottom: 16px; margin-bottom: 28px; }
+    h1 { font-size: 24px; margin: 0 0 4px; }
+    header p { margin: 0; opacity: .65; font-size: 14px; }
+    section { margin-bottom: 28px; }
+    .fam { font-size: 13px; opacity: .6; font-family: ui-monospace, Menlo, monospace; }
+    .demo { margin: 4px 0 0; font-size: 19px; }
+    .w300 { font-weight: 300; }
+    .w500 { font-weight: 500; }
+    .w700 { font-weight: 700; }
+    .sans  { font-family: "minsans-v", sans-serif; }
+    .syht  { font-family: "syht-cn-v", sans-serif; }
+    .syst  { font-family: "syst-cn-v", serif; }
+    .jbm   { font-family: "jb-mono", monospace; }
+    .casc  { font-family: "cascadia-mono-v", monospace; }
+    footer { font-size: 13px; opacity: .55; border-top: 1px solid color-mix(in srgb, currentColor 15%, transparent); padding-top: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>guohub-fonts</h1>
+    <p>guohub 的 web 字体库。本页即自检页：所有字族正常渲染 = 本仓库在该 CDN 上可用。</p>
+  </header>
+
+  <section>
+    <div class="fam">cjk/minsans — MiSans VF（v4.009）</div>
+    <p class="demo sans w300">永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭 — MiSans 300</p>
+    <p class="demo sans w500"> vite 8 · react 19 · Jotai — MiSans 500</p>
+    <p class="demo sans w700"> 骨骼惊奇 0123456789 — MiSans 700</p>
+  </section>
+
+  <section>
+    <div class="fam">cjk/syht-cn — 思源黑体 CN VF（v2.005）</div>
+    <p class="demo syht w300">清风徐来，水波不兴 — 思源黑体 300</p>
+    <p class="demo syht w700">山高月小，水落石出 0123456789 — 思源黑体 700</p>
+  </section>
+
+  <section>
+    <div class="fam">cjk/syst-cn — 思源宋体 CN VF（v2.003）</div>
+    <p class="demo syst w300">落霞与孤鹜齐飞，秋水共长天一色 — 思源宋体 300</p>
+    <p class="demo syst w700">渔舟唱晚，响穷彭蠡之滨 0123456789 — 思源宋体 700</p>
+  </section>
+
+  <section>
+    <div class="fam">english/jb-mono — JetBrains Mono</div>
+    <p class="demo jbm w300">const fn = (x) =&gt; x * 42 — jb-mono italic <i>light</i></p>
+    <p class="demo jbm w700">SELECT * FROM fonts WHERE libre = true;</p>
+  </section>
+
+  <section>
+    <div class="fam">english/cascadia-mono-v — Cascadia Mono VF（200–700）</div>
+    <p class="demo casc w300">interface Tonic { stage: s1..s10 } — Cascadia 300</p>
+    <p class="demo casc w700">npm i cn-font-split@7 — Cascadia 700</p>
+  </section>
+
+  <section>
+    <div class="fam">拉丁 VF 衬线（opsz + wght，含斜体）</div>
+    <p class="demo" style="font-family: 'source-serif-4-v', serif; font-weight: 300;">Source Serif 4 — The quick brown fox jumps over the lazy dog 0123</p>
+    <p class="demo" style="font-family: 'source-serif-4-v', serif; font-weight: 800;"><i>Source Serif 4 italic 800</i></p>
+    <p class="demo" style="font-family: 'newsreader-v', serif;">Newsreader — Reading design, from 6pt to 72pt</p>
+    <p class="demo" style="font-family: 'literata-v', serif;"><i>Literata italic — book-quality text face</i></p>
+  </section>
+
+  <section>
+    <div class="fam">拉丁 VF 无衬线（wght）</div>
+    <p class="demo" style="font-family: 'source-sans-3-v', sans-serif; font-weight: 200;">Source Sans 3 — the Latin sibling of Source Han Sans</p>
+    <p class="demo" style="font-family: 'inter-v', sans-serif; font-weight: 800;">Inter 800 — UI-first typeface</p>
+    <p class="demo" style="font-family: 'public-sans-v', sans-serif;">Public Sans — wght + wdth axes</p>
+    <p class="demo" style="font-family: 'work-sans-v', sans-serif;">Work Sans — from 300 to 900</p>
+  </section>
+
+  <section>
+    <div class="fam">静态字重（无 VF 发行）</div>
+    <p class="demo" style="font-family: 'ibm-plex-sans', sans-serif;">IBM Plex Sans — corporate neutrality 400</p>
+    <p class="demo" style="font-family: 'ibm-plex-serif', serif;">IBM Plex Serif — engineered serif</p>
+    <p class="demo" style="font-family: 'ibm-plex-mono', monospace;">IBM Plex Mono — const ci = true;</p>
+    <p class="demo" style="font-family: 'libre-baskerville', serif;">Libre Baskerville — classic web reading 400/700</p>
+    <p class="demo" style="font-family: 'dm-serif-display', serif; font-size: 26px;">DM Serif Display — Headline Only</p>
+  </section>
+
+  <footer>
+    四层 CDN：cdn.jsdelivr.net → fastly.jsdelivr.net → guohub-fonts.pages.dev → guohub8080.github.io/guohub-fonts<br>
+    使用方按族懒加载（见 guookcase 主仓库 webfontLoader.ts）；本页为全量调试入口（fonts.css）。
+  </footer>
+</body>
+</html>

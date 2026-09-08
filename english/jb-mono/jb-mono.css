@@ -1,0 +1,16 @@
+/* JetBrains Mono（SIL OFL）独立入口，供按族懒加载 */
+@font-face {
+  font-family: 'jb-mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('./jb-mono.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'jb-mono';
+  font-style: italic;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('./jb-mono-i.woff2') format('woff2');
+}
