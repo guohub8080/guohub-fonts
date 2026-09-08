@@ -13,6 +13,7 @@
 @import url('./english/inconsolata-v/inconsolata-v.css');
 @import url('./english/martian-mono-v/martian-mono-v.css');
 @import url('./english/spline-sans-mono-v/spline-sans-mono-v.css');
+@import url('./english/red-hat-mono-v/red-hat-mono-v.css');
 @import url('./english/ibm-plex-mono/ibm-plex-mono.css');
 /* ---- Sans VF ---- */
 @import url('./english/inter-v/inter-v.css');
@@ -30,6 +31,16 @@
 @import url('./english/archivo-v/archivo-v.css');
 @import url('./english/public-sans-v/public-sans-v.css');
 @import url('./english/work-sans-v/work-sans-v.css');
+@import url('./english/rubik-v/rubik-v.css');
+@import url('./english/dm-sans-v/dm-sans-v.css');
+@import url('./english/figtree-v/figtree-v.css');
+@import url('./english/lexend-v/lexend-v.css');
+@import url('./english/sora-v/sora-v.css');
+@import url('./english/jost-v/jost-v.css');
+@import url('./english/quicksand-v/quicksand-v.css');
+@import url('./english/saira-v/saira-v.css');
+@import url('./english/epilogue-v/epilogue-v.css');
+@import url('./english/anybody-v/anybody-v.css');
 /* ---- Serif VF ---- */
 @import url('./english/source-serif-4-v/source-serif-4-v.css');
 @import url('./english/newsreader-v/newsreader-v.css');
@@ -42,7 +53,17 @@
 @import url('./english/fraunces-v/fraunces-v.css');
 @import url('./english/crimson-pro-v/crimson-pro-v.css');
 @import url('./english/bitter-v/bitter-v.css');
+@import url('./english/eb-garamond-v/eb-garamond-v.css');
+@import url('./english/bodoni-moda-v/bodoni-moda-v.css');
+@import url('./english/cormorant-v/cormorant-v.css');
+@import url('./english/vollkorn-v/vollkorn-v.css');
+/* ---- 特色风味 ---- */
+@import url('./english/recursive-v/recursive-v.css');
+@import url('./english/caveat-v/caveat-v.css');
+@import url('./english/shantell-sans-v/shantell-sans-v.css');
+@import url('./english/darker-grotesque-v/darker-grotesque-v.css');
 /* ---- 静态（无 VF 发行） ---- */
+@import url('./english/ubuntu/ubuntu.css');
 @import url('./english/ibm-plex-sans/ibm-plex-sans.css');
 @import url('./english/ibm-plex-serif/ibm-plex-serif.css');
 @import url('./english/libre-baskerville/libre-baskerville.css');

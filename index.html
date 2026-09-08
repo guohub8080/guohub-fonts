@@ -14,15 +14,13 @@
       --ink: #e8ebf1;
       --ink-dim: #8b94a3;
       --accent: #6ea8fe;
-      --accent-2: #b18cff;
       --mono: ui-monospace, "SF Mono", Menlo, monospace;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       background:
-        radial-gradient(1200px 500px at 80% -10%, rgba(110, 168, 254, .12), transparent 60%),
-        radial-gradient(900px 400px at 10% -5%, rgba(177, 140, 255, .10), transparent 55%),
+        radial-gradient(1100px 460px at 85% -10%, rgba(110, 168, 254, .10), transparent 60%),
         var(--bg);
       color: var(--ink);
       font-family: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -30,70 +28,19 @@
     }
 
     /* ---------- Hero ---------- */
-    .hero {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 64px 24px 28px;
-    }
+    .hero { max-width: 1080px; margin: 0 auto; padding: 60px 24px 24px; }
     .hero h1 {
       margin: 0;
       font-size: clamp(30px, 5vw, 44px);
       font-weight: 800;
       letter-spacing: -0.02em;
-      background: linear-gradient(120deg, var(--ink) 30%, var(--accent) 70%, var(--accent-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: var(--ink);
     }
+    .hero h1 em { font-style: normal; color: var(--accent); }
     .hero p { margin: 10px 0 0; color: var(--ink-dim); font-size: 15px; max-width: 640px; }
     .stats { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
     .stat b { font-size: 26px; font-weight: 700; color: var(--ink); }
     .stat span { display: block; font-size: 12px; color: var(--ink-dim); margin-top: 2px; }
-
-    /* ---------- 字重滑杆（VF 交互） ---------- */
-    .weight-bar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: rgba(13, 16, 23, .78);
-      border-bottom: 1px solid var(--line);
-    }
-    .weight-bar-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 12px 24px calc(12px);
-      padding-bottom: calc(12px + env(safe-area-inset-bottom) / 8);
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .weight-bar label { font-size: 13px; color: var(--ink-dim); white-space: nowrap; }
-    .weight-bar output {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--accent);
-      min-width: 3.2em;
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-    }
-    input[type="range"] {
-      flex: 1;
-      appearance: none;
-      height: 4px;
-      border-radius: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      outline: none;
-    }
-    input[type="range"]::-webkit-slider-thumb {
-      appearance: none;
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      background: #fff;
-      border: 3px solid var(--accent);
-      cursor: grab;
-    }
-    .weight-note { font-size: 12px; color: var(--ink-dim); white-space: nowrap; }
 
     /* ---------- 分区 ---------- */
     main { max-width: 1080px; margin: 0 auto; padding: 8px 24px calc(64px + env(safe-area-inset-bottom)); }
@@ -105,42 +52,103 @@
     /* ---------- 字族卡片 ---------- */
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
     .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 236px;
       background: linear-gradient(180deg, var(--panel-2), var(--panel));
       border: 1px solid var(--line);
       border-radius: 14px;
       padding: 18px 20px 16px;
-      transition: border-color .18s, transform .18s;
-      overflow: hidden;
     }
-    .card:hover { border-color: #3a4757; transform: translateY(-2px); }
     .fam {
       display: flex;
       align-items: center;
       gap: 8px;
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 12.5px;
       color: var(--accent);
-      margin-bottom: 10px;
     }
-    .fam .tag {
+    .fam-sub { margin-top: 3px; font-size: 12px; color: var(--ink-dim); }
+    .fam-sub .sty {
+      font-style: normal;
+      color: var(--ink);
+      background: var(--line);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+    }
+    .fam-sub .origin {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent);
+      margin-left: 6px;
+    }
+    .fam-sub .origin:hover { opacity: .75; }
+    .spec { font-size: var(--sz, 22px); line-height: 1.45; margin: 12px 0 0; overflow-wrap: anywhere; }
+    .spec-sub { font-size: calc(var(--sz, 22px) * 0.62); color: var(--ink-dim); margin: 6px 0 0; line-height: 1.4; overflow-wrap: anywhere; }
+
+    /* 许可证徽章（每卡唯一胶囊，右侧） */
+    .lic {
+      margin-left: auto;
       font-family: inherit;
       font-size: 10.5px;
-      padding: 2px 7px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .lic-ok   { color: #7dd8a0; border: 1px solid rgba(125, 216, 160, .35); background: rgba(125, 216, 160, .08); }
+    .lic-warn { color: #e8c268; border: 1px solid rgba(232, 194, 104, .35); background: rgba(232, 194, 104, .08); }
+
+    /* 字重/字号控件（贴卡片底部，两行结构统一） */
+    .ctrls {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px dashed var(--line);
+      display: grid;
+      gap: 10px;
+    }
+    .ctrl { display: flex; align-items: center; gap: 10px; }
+    .ctrl .lbl { font-size: 11px; color: var(--ink-dim); white-space: nowrap; }
+    .ctrl output {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      min-width: 3em;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .ctrl input[type="range"] {
+      flex: 1;
+      appearance: none;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--accent);
+      opacity: .85;
+      outline: none;
+      cursor: pointer;
+    }
+    .ctrl input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2.5px solid var(--accent);
+      cursor: grab;
+    }
+    .wbtns { display: flex; gap: 6px; flex-wrap: wrap; }
+    .wbtn {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      padding: 3px 10px;
       border-radius: 999px;
       border: 1px solid var(--line);
+      background: transparent;
       color: var(--ink-dim);
+      cursor: pointer;
+      transition: all .15s;
     }
-    .spec { font-size: 22px; line-height: 1.45; margin: 0; overflow-wrap: anywhere; }
-    .spec-sub {
-      font-size: 13.5px;
-      color: var(--ink-dim);
-      margin: 6px 0 0;
-      line-height: 1.4;
-    }
-    .row-3 { display: flex; gap: 14px; margin-top: 10px; color: var(--ink-dim); font-size: 13px; }
-    .row-3 em { font-style: normal; }
-    .w3 { font-weight: 300; } .w5 { font-weight: 500; } .w8 { font-weight: 800; }
-    .vf .spec { font-weight: var(--demo-w, 500); }
+    .wbtn:hover { border-color: var(--accent); color: var(--ink); }
+    .wbtn.on { background: var(--accent); border-color: var(--accent); color: #0b1020; font-weight: 600; }
 
     footer {
       max-width: 1080px;
@@ -152,148 +160,189 @@
       font-family: var(--mono);
       line-height: 1.7;
     }
-    @media (max-width: 480px) { .spec { font-size: 19px; } .weight-note { display: none; } }
+    @media (max-width: 480px) { .spec { font-size: 19px; } }
   </style>
 </head>
 <body>
 
 <header class="hero">
-  <h1>guohub-fonts</h1>
+  <h1>guohub-<em>fonts</em></h1>
   <p>guohub 的 web 字体库：CJK 分片 + fontsource VF 字族，多 CDN 四层自动降级，按族懒加载零默认流量。本页即自检页——所有样张正常渲染 = 本 CDN 节点可用。</p>
   <div class="stats">
-    <div class="stat"><b>41</b><span>字族</span></div>
-    <div class="stat"><b>31</b><span>可变字体（VF）</span></div>
+    <div class="stat"><b>61</b><span>字族</span></div>
+    <div class="stat"><b>50</b><span>可变字体（VF）</span></div>
+    <div class="stat"><b>61/61</b><span>免费可商用</span></div>
     <div class="stat"><b>4</b><span>CDN 降级层</span></div>
     <div class="stat"><b>0</b><span>默认字体流量</span></div>
   </div>
 </header>
 
-<div class="weight-bar">
-  <div class="weight-bar-inner">
-    <label for="w">VF 字重</label>
-    <input type="range" id="w" min="100" max="900" step="10" value="500" aria-label="可变字体字重">
-    <output for="w" id="w-out">500</output>
-    <span class="weight-note">拖动实时预览全部可变字族</span>
-  </div>
-</div>
-
 <main>
   <section>
     <div class="sec-head"><h2>中日韩（CJK）</h2><small>cn-font-split 分片 · unicode-range 按需下载</small></div>
-    <div class="grid">
-      <div class="card vf"><div class="fam">minsans-v <span class="tag">VF · MiSans v4.009</span></div>
+    <div class="grid" data-lang="zh">
+      <div class="card vf"><div class="fam">minsans-v</div><div class="fam-sub">MiSans VF · v4.009</div>
         <p class="spec" style="font-family:'minsans-v',sans-serif">永和九年，岁在癸丑</p>
         <p class="spec-sub" style="font-family:'minsans-v',sans-serif">The quick brown fox jumps over the lazy dog — 0123456789</p></div>
-      <div class="card vf"><div class="fam">syht-cn-v <span class="tag">VF · 思源黑体 v2.005</span></div>
+      <div class="card vf"><div class="fam">syht-cn-v</div><div class="fam-sub">思源黑体 CN VF · v2.005</div>
         <p class="spec" style="font-family:'syht-cn-v',sans-serif">清风徐来，水波不兴</p>
         <p class="spec-sub" style="font-family:'syht-cn-v',sans-serif">Sphinx of black quartz, judge my vow</p></div>
-      <div class="card vf"><div class="fam">syst-cn-v <span class="tag">VF · 思源宋体 v2.003</span></div>
+      <div class="card vf"><div class="fam">syst-cn-v</div><div class="fam-sub">思源宋体 CN VF · v2.003</div>
         <p class="spec" style="font-family:'syst-cn-v',serif">落霞与孤鹜齐飞，秋水共长天一色</p>
         <p class="spec-sub" style="font-family:'syst-cn-v',serif">Typography is the craft of endowing human language</p></div>
-      <div class="card"><div class="fam">smiley-sans <span class="tag">静态 · 得意黑 v2.0.1</span></div>
+      <div class="card"><div class="fam">smiley-sans</div><div class="fam-sub">得意黑 · v2.0.1 · 静态</div>
         <p class="spec" style="font-family:'smiley-sans',sans-serif">斜体风格标题字</p>
         <p class="spec-sub" style="font-family:'smiley-sans',sans-serif">Smiley Sans — 手写感的中文标题字体</p></div>
     </div>
   </section>
 
   <section>
-    <div class="sec-head"><h2>等宽 Mono</h2><small>代码字型 · 含连字与多轴</small></div>
+    <div class="sec-head"><h2>等宽 Mono</h2><small>代码字型 · 多轴卡每轴一杆</small></div>
     <div class="grid">
-      <div class="card"><div class="fam">jb-mono <span class="tag">JetBrains Mono</span></div>
+      <div class="card vf"><div class="fam">jb-mono</div><div class="fam-sub">JetBrains Mono · VF</div>
         <p class="spec" style="font-family:'jb-mono',monospace">const fn = (x) =&gt; x * 42;</p>
         <p class="spec-sub" style="font-family:'jb-mono',monospace"><i>SELECT * FROM fonts WHERE libre = true;</i></p></div>
-      <div class="card vf"><div class="fam">cascadia-mono-v <span class="tag">微软开源</span></div>
+      <div class="card vf"><div class="fam">cascadia-mono-v</div><div class="fam-sub">微软开源 · Consolas 继任</div>
         <p class="spec" style="font-family:'cascadia-mono-v',monospace">interface Tonic { s1..s10 }</p></div>
-      <div class="card vf"><div class="fam">fira-code-v <span class="tag">连字</span></div>
+      <div class="card vf"><div class="fam">fira-code-v</div><div class="fam-sub">编程连字</div>
         <p class="spec" style="font-family:'fira-code-v',monospace;font-variant-ligatures:common-ligatures">a =&gt; b !== c &amp;&amp; d</p></div>
-      <div class="card vf"><div class="fam">inconsolata-v</div>
-        <p class="spec" style="font-family:'inconsolata-v',monospace">npm i cn-font-split@7</p></div>
-      <div class="card vf"><div class="fam">martian-mono-v <span class="tag">wdth+wght</span></div>
-        <p class="spec" style="font-family:'martian-mono-v',monospace;font-stretch:90%">THE QUICK 0123</p></div>
-      <div class="card vf"><div class="fam">spline-sans-mono-v</div>
+      <div class="card vf"><div class="fam">spline-sans-mono-v</div><div class="fam-sub">Spline Sans Mono</div>
         <p class="spec" style="font-family:'spline-sans-mono-v',monospace">git push --tags</p></div>
-      <div class="card"><div class="fam">ibm-plex-mono <span class="tag">静态</span></div>
+      <div class="card" data-weights="300,400,700"><div class="fam">ibm-plex-mono</div><div class="fam-sub">IBM Plex Mono · 静态字重</div>
         <p class="spec" style="font-family:'ibm-plex-mono',monospace">const ci = true;</p></div>
+      <div class="card vf"><div class="fam">red-hat-mono-v</div><div class="fam-sub">Red Hat Mono · wght 300–700</div>
+        <p class="spec" style="font-family:'red-hat-mono-v',monospace">pnpm sync:latin</p></div>      <div class="card"><div class="fam">inconsolata-v</div><div class="fam-sub">Inconsolata · wght + wdth 50–200</div>
+        <p class="spec" style="font-family:'inconsolata-v',monospace">inconsolata width</p></div>
+      <div class="card"><div class="fam">martian-mono-v</div><div class="fam-sub">Martian Mono · wght + wdth 75–112.5</div>
+        <p class="spec" style="font-family:'martian-mono-v',monospace">MARTIAN WIDTH</p></div>
+
     </div>
   </section>
 
   <section>
-    <div class="sec-head"><h2>无衬线 Sans</h2><small>全部 VF · 拖动页首滑杆变字重</small></div>
+    <div class="sec-head"><h2>无衬线 Sans</h2><small>VF 卡自带字重滑杆 · 多轴卡每轴一杆 · 静态卡为字重按钮</small></div>
     <div class="grid">
-      <div class="card vf"><div class="fam">inter-v <span class="tag">UI 首选</span></div>
-        <p class="spec" style="font-family:'inter-v',sans-serif">Interface first, always.</p></div>
-      <div class="card vf"><div class="fam">source-sans-3-v <span class="tag">思源拉丁</span></div>
+      <div class="card vf"><div class="fam">source-sans-3-v</div><div class="fam-sub">Source Sans 3 · 思源拉丁版</div>
         <p class="spec" style="font-family:'source-sans-3-v',sans-serif">The Latin sibling of Source Han Sans</p></div>
-      <div class="card vf"><div class="fam">noto-sans-v</div>
-        <p class="spec" style="font-family:'noto-sans-v',sans-serif">Google's universal type family</p></div>
-      <div class="card vf"><div class="fam">roboto-flex-v <span class="tag">多轴实验</span></div>
-        <p class="spec" style="font-family:'roboto-flex-v',sans-serif">Flexibly Roboto, 13 axes of control</p></div>
-      <div class="card vf"><div class="fam">open-sans-v</div>
-        <p class="spec" style="font-family:'open-sans-v',sans-serif">Friendly and neutral for everything</p></div>
-      <div class="card vf"><div class="fam">montserrat-v</div>
+      <div class="card vf"><div class="fam">montserrat-v</div><div class="fam-sub">Montserrat</div>
         <p class="spec" style="font-family:'montserrat-v',sans-serif">MONTSERRAT GEOMETRIC SANS</p></div>
-      <div class="card vf"><div class="fam">raleway-v</div>
+      <div class="card vf"><div class="fam">raleway-v</div><div class="fam-sub">Raleway</div>
         <p class="spec" style="font-family:'raleway-v',sans-serif">Elegant sans-serif, near serif</p></div>
-      <div class="card vf"><div class="fam">manrope-v</div>
+      <div class="card vf"><div class="fam">manrope-v</div><div class="fam-sub">Manrope</div>
         <p class="spec" style="font-family:'manrope-v',sans-serif">Modern geometric humanist</p></div>
-      <div class="card vf"><div class="fam">space-grotesk-v</div>
+      <div class="card vf"><div class="fam">space-grotesk-v</div><div class="fam-sub">Space Grotesk</div>
         <p class="spec" style="font-family:'space-grotesk-v',sans-serif">Space Grotesk — tech-flavored</p></div>
-      <div class="card vf"><div class="fam">outfit-v</div>
+      <div class="card vf"><div class="fam">outfit-v</div><div class="fam-sub">Outfit</div>
         <p class="spec" style="font-family:'outfit-v',sans-serif">Outfit your next brand</p></div>
-      <div class="card vf"><div class="fam">plus-jakarta-sans-v</div>
+      <div class="card vf"><div class="fam">plus-jakarta-sans-v</div><div class="fam-sub">Plus Jakarta Sans</div>
         <p class="spec" style="font-family:'plus-jakarta-sans-v',sans-serif">Plus Jakarta Sans — city vibes</p></div>
-      <div class="card vf"><div class="fam">oswald-v <span class="tag">窄体</span></div>
+      <div class="card vf"><div class="fam">oswald-v</div><div class="fam-sub">Oswald · 窄体标题</div>
         <p class="spec" style="font-family:'oswald-v',sans-serif">CONDENSED HEADLINE STYLE</p></div>
-      <div class="card vf"><div class="fam">archivo-v</div>
-        <p class="spec" style="font-family:'archivo-v',sans-serif">Archivo — grotesque archive</p></div>
-      <div class="card vf"><div class="fam">public-sans-v <span class="tag">wght+wdth</span></div>
+      <div class="card vf"><div class="fam">public-sans-v</div><div class="fam-sub">Public Sans · wght + wdth</div>
         <p class="spec" style="font-family:'public-sans-v',sans-serif">Public Sans, for the public sector</p></div>
-      <div class="card vf"><div class="fam">work-sans-v</div>
+      <div class="card vf"><div class="fam">work-sans-v</div><div class="fam-sub">Work Sans</div>
         <p class="spec" style="font-family:'work-sans-v',sans-serif">Work Sans — honest and warm</p></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head"><h2>衬线 Serif</h2><small>阅读字型 · 多数带 opsz 光学尺寸轴</small></div>
-    <div class="grid">
-      <div class="card vf"><div class="fam">source-serif-4-v <span class="tag">opsz 8–60</span></div>
-        <p class="spec" style="font-family:'source-serif-4-v',serif">Source Serif — from footnote to headline</p></div>
-      <div class="card vf"><div class="fam">newsreader-v <span class="tag">opsz 6–72</span></div>
-        <p class="spec" style="font-family:'newsreader-v',serif">Newsreader, designed for on-screen news</p></div>
-      <div class="card vf"><div class="fam">literata-v</div>
-        <p class="spec" style="font-family:'literata-v',serif">Literata — book-quality screen serif</p></div>
-      <div class="card vf"><div class="fam">noto-serif-v</div>
-        <p class="spec" style="font-family:'noto-serif-v',serif">Noto Serif, the universal book face</p></div>
-      <div class="card vf"><div class="fam">roboto-serif-v <span class="tag">opsz+wght+wdth</span></div>
-        <p class="spec" style="font-family:'roboto-serif-v',serif">Roboto Serif — the companion face</p></div>
-      <div class="card vf"><div class="fam">lora-v</div>
-        <p class="spec" style="font-family:'lora-v',serif">Lora — a subtle brush-flavored serif</p></div>
-      <div class="card vf"><div class="fam">playfair-display-v</div>
-        <p class="spec" style="font-family:'playfair-display-v',serif">Playfair Display — late 18th c. style</p></div>
-      <div class="card vf"><div class="fam">merriweather-v</div>
-        <p class="spec" style="font-family:'merriweather-v',serif">Merriweather, made for screens</p></div>
-      <div class="card vf"><div class="fam">fraunces-v <span class="tag">SOFT+WONK 轴</span></div>
-        <p class="spec" style="font-family:'fraunces-v',serif">Fraunces — wonky old-style display</p></div>
-      <div class="card vf"><div class="fam">crimson-pro-v</div>
-        <p class="spec" style="font-family:'crimson-pro-v',serif">Crimson Pro — book typesetting</p></div>
-      <div class="card vf"><div class="fam">bitter-v</div>
-        <p class="spec" style="font-family:'bitter-v',serif">Bitter — slab-ish reading serif</p></div>
-      <div class="card"><div class="fam">libre-baskerville <span class="tag">静态</span></div>
-        <p class="spec" style="font-family:'libre-baskerville',serif">Libre Baskerville — classic web reading</p></div>
-      <div class="card"><div class="fam">dm-serif-display <span class="tag">静态 · 大标题</span></div>
-        <p class="spec" style="font-family:'dm-serif-display',serif">DM Serif Display</p></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head"><h2>静态无衬线</h2><small>无 VF 发行 · 按字重多文件</small></div>
-    <div class="grid">
-      <div class="card"><div class="fam">ibm-plex-sans <span class="tag">静态</span></div>
+      <div class="card vf"><div class="fam">rubik-v</div><div class="fam-sub">Rubik</div>
+        <p class="spec" style="font-family:'rubik-v',sans-serif">Rubik — friendly workhorse</p></div>
+      <div class="card vf"><div class="fam">figtree-v</div><div class="fam-sub">Figtree</div>
+        <p class="spec" style="font-family:'figtree-v',sans-serif">Figtree — fresh geometric sans</p></div>
+      <div class="card vf"><div class="fam">lexend-v</div><div class="fam-sub">Lexend · 阅读优化</div>
+        <p class="spec" style="font-family:'lexend-v',sans-serif">Lexend — readability research based</p></div>
+      <div class="card vf"><div class="fam">sora-v</div><div class="fam-sub">Sora</div>
+        <p class="spec" style="font-family:'sora-v',sans-serif">Sora — tech-forward geometric</p></div>
+      <div class="card vf"><div class="fam">jost-v</div><div class="fam-sub">Jost · Futura 风几何</div>
+        <p class="spec" style="font-family:'jost-v',sans-serif">Jost* — Futura of the web era</p></div>
+      <div class="card vf"><div class="fam">quicksand-v</div><div class="fam-sub">Quicksand · 圆润</div>
+        <p class="spec" style="font-family:'quicksand-v',sans-serif">Quicksand — rounded friendly</p></div>
+      <div class="card vf"><div class="fam">epilogue-v</div><div class="fam-sub">Epilogue · wght + slnt</div>
+        <p class="spec" style="font-family:'epilogue-v',sans-serif">Epilogue — conclusion of a saga</p></div>
+      <div class="card"><div class="fam">inter-v</div><div class="fam-sub">Inter · opsz+wght</div>
+        <p class="spec" style="font-family:'inter-v',sans-serif">Interface first</p></div>
+      <div class="card"><div class="fam">dm-sans-v</div><div class="fam-sub">DM Sans · opsz+wght 100–1000</div>
+        <p class="spec" style="font-family:'dm-sans-v',sans-serif">DM Sans product-first</p></div>
+      <div class="card"><div class="fam">open-sans-v</div><div class="fam-sub">Open Sans · wght + wdth 75–100</div>
+        <p class="spec" style="font-family:'open-sans-v',sans-serif">Open Sans friendly</p></div>
+      <div class="card"><div class="fam">anybody-v</div><div class="fam-sub">Anybody · wdth 50–150 + wght</div>
+        <p class="spec" style="font-family:'anybody-v',sans-serif">ANYBODY wide narrow</p></div>
+      <div class="card"><div class="fam">saira-v</div><div class="fam-sub">Saira · wdth 50–125 + wght</div>
+        <p class="spec" style="font-family:'saira-v',sans-serif">Saira width family</p></div>
+      <div class="card"><div class="fam">archivo-v</div><div class="fam-sub">Archivo · wght + wdth 62–125</div>
+        <p class="spec" style="font-family:'archivo-v',sans-serif">Archivo grotesque</p></div>
+      <div class="card"><div class="fam">noto-sans-v</div><div class="fam-sub">Noto Sans · wght + wdth 62.5–100</div>
+        <p class="spec" style="font-family:'noto-sans-v',sans-serif">Noto universal</p></div>
+      <div class="card" data-weights="300,400,500,700"><div class="fam">ubuntu</div><div class="fam-sub">Ubuntu · 静态字重 · UFL（官方无 VF 发行）</div>
+        <p class="spec" style="font-family:'ubuntu',sans-serif">Ubuntu — humanity to everyone</p></div>
+      <div class="card" data-weights="300,400,700"><div class="fam">ibm-plex-sans</div><div class="fam-sub">IBM Plex Sans · 静态字重</div>
         <p class="spec" style="font-family:'ibm-plex-sans',sans-serif">IBM Plex Sans — corporate neutrality</p></div>
-      <div class="card"><div class="fam">ibm-plex-serif <span class="tag">静态</span></div>
-        <p class="spec" style="font-family:'ibm-plex-serif',serif">IBM Plex Serif — engineered serif</p></div>
+
     </div>
   </section>
+
+  <section>
+    <div class="sec-head"><h2>衬线 Serif</h2><small>阅读字型 · 多轴卡每轴一杆 · 静态卡为字重按钮</small></div>
+    <div class="grid">
+      <div class="card vf"><div class="fam">lora-v</div><div class="fam-sub">Lora</div>
+        <p class="spec" style="font-family:'lora-v',serif">Lora — a subtle brush-flavored serif</p></div>
+      <div class="card vf"><div class="fam">playfair-display-v</div><div class="fam-sub">Playfair Display</div>
+        <p class="spec" style="font-family:'playfair-display-v',serif">Playfair Display — late 18th c. style</p></div>
+      <div class="card vf"><div class="fam">merriweather-v</div><div class="fam-sub">Merriweather</div>
+        <p class="spec" style="font-family:'merriweather-v',serif">Merriweather, made for screens</p></div>
+      <div class="card vf"><div class="fam">crimson-pro-v</div><div class="fam-sub">Crimson Pro</div>
+        <p class="spec" style="font-family:'crimson-pro-v',serif">Crimson Pro — book typesetting</p></div>
+      <div class="card vf"><div class="fam">bitter-v</div><div class="fam-sub">Bitter</div>
+        <p class="spec" style="font-family:'bitter-v',serif">Bitter — slab-ish reading serif</p></div>
+      <div class="card vf"><div class="fam">eb-garamond-v</div><div class="fam-sub">EB Garamond · Garalde 古典文学衬线</div>
+        <p class="spec" style="font-family:'eb-garamond-v',serif">Garamond — timeless renaissance text</p></div>
+      <div class="card vf"><div class="fam">cormorant-v</div><div class="fam-sub">Cormorant · 高对比 display 衬线</div>
+        <p class="spec" style="font-family:'cormorant-v',serif">Cormorant — elegant high-contrast</p></div>
+      <div class="card vf"><div class="fam">vollkorn-v</div><div class="fam-sub">Vollkorn · 老式阅读衬线</div>
+        <p class="spec" style="font-family:'vollkorn-v',serif">Vollkorn — sturdy old-style text face</p></div>
+      <div class="card" data-weights="400,700"><div class="fam">libre-baskerville</div><div class="fam-sub">Libre Baskerville · 静态 400/700</div>
+        <p class="spec" style="font-family:'libre-baskerville',serif">Libre Baskerville — classic web reading</p></div>
+      <div class="card" data-weights="400" data-italic><div class="fam">dm-serif-display</div><div class="fam-sub">DM Serif Display · 静态 · 大标题</div>
+        <p class="spec" style="font-family:'dm-serif-display',serif">DM Serif Display</p></div>      <div class="card"><div class="fam">fraunces-v</div><div class="fam-sub">Fraunces · opsz+wght+SOFT+WONK</div>
+        <p class="spec" style="font-family:'fraunces-v',serif">Fraunces — wonky display</p></div>
+      <div class="card"><div class="fam">bodoni-moda-v</div><div class="fam-sub">Bodoni Moda · wght+opsz 6–96</div>
+        <p class="spec" style="font-family:'bodoni-moda-v',serif">BODONI editorial</p></div>
+      <div class="card"><div class="fam">source-serif-4-v</div><div class="fam-sub">Source Serif 4 · wght+opsz 8–60</div>
+        <p class="spec" style="font-family:'source-serif-4-v',serif">Source Serif headline</p></div>
+      <div class="card"><div class="fam">newsreader-v</div><div class="fam-sub">Newsreader · wght+opsz 6–72</div>
+        <p class="spec" style="font-family:'newsreader-v',serif">Newsreader on-screen</p></div>
+      <div class="card"><div class="fam">literata-v</div><div class="fam-sub">Literata · wght+opsz 7–72</div>
+        <p class="spec" style="font-family:'literata-v',serif">Literata book-quality</p></div>
+      <div class="card"><div class="fam">noto-serif-v</div><div class="fam-sub">Noto Serif · wght + wdth</div>
+        <p class="spec" style="font-family:'noto-serif-v',serif">Noto Serif book</p></div>
+      <div class="card"><div class="fam">roboto-serif-v</div><div class="fam-sub">Roboto Serif · wdth+opsz+wght+GRAD</div>
+        <p class="spec" style="font-family:'roboto-serif-v',serif">Roboto Serif companion</p></div>
+      <div class="card" data-weights="300,400,700"><div class="fam">ibm-plex-serif</div><div class="fam-sub">IBM Plex Serif · 静态字重</div>
+        <p class="spec" style="font-family:'ibm-plex-serif',serif">IBM Plex Serif — engineered serif</p></div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>特色风味</h2><small>手写 · 怪趣 · 跨风格多轴</small></div>
+    <div class="grid">
+      <div class="card vf"><div class="fam">recursive-v</div><div class="fam-sub">Recursive · MONO+CASL+wght+slnt+CRSV 五轴</div>
+        <p class="spec" style="font-family:'recursive-v',sans-serif">Recursive — code to casual</p></div>
+      <div class="card vf"><div class="fam">shantell-sans-v</div><div class="fam-sub">Shantell Sans · wght+INFM+BNCE+SPAC</div>
+        <p class="spec" style="font-family:'shantell-sans-v',sans-serif">Shantell — playful hand-drawn</p></div>
+      <div class="card vf"><div class="fam">caveat-v</div><div class="fam-sub">Caveat · 手写体</div>
+        <p class="spec" style="font-family:'caveat-v',cursive">Caveat — handwriting vibes</p></div>
+      <div class="card vf"><div class="fam">darker-grotesque-v</div><div class="fam-sub">Darker Grotesque · 高个儿怪趣</div>
+        <p class="spec" style="font-family:'darker-grotesque-v',sans-serif">Darker Grotesque — tall &amp; quirky</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>旗舰实验场：Roboto Flex</h2><small>13 轴 · 当代可变字体设计空间的百科全书</small></div>
+    <div class="card" style="grid-column: 1 / -1;">
+      <div class="fam">roboto-flex-v</div><div class="fam-sub">无衬线 · wght 100–1000 · wdth 25–151 · opsz 8–144 · GRAD · slnt · 6 个结构与比例轴</div>
+      <p id="rf-spec" style="font-family:'roboto-flex-v',sans-serif;font-size:var(--sz,18px);line-height:1.7;margin:14px 0 0">Typography is the craft of endowing human language with a durable visual form. Roboto Flex opens its 13 variable axes, letting one glyph design stretch across its entire design space: from footnote captions to display headlines, from narrow table labels to wide banners.</p>
+      <div class="ctrls" id="rf-ctrls"></div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -302,15 +351,317 @@
 </footer>
 
 <script>
-  // VF 字重滑杆：全页可变字族实时联动（写 CSS 变量，浏览器仅重绘不回流布局树外样式）
-  const w = document.getElementById('w');
-  const out = document.getElementById('w-out');
-  const apply = () => {
-    document.documentElement.style.setProperty('--demo-w', w.value);
-    out.textContent = w.value;
+  // 字体原始出处（官网/发布页），fam-sub 行尾生成「官网 ↗」链接
+  const ORIGINS = {
+    'minsans-v': 'https://hyperos.mi.com/font/',
+    'syht-cn-v': 'https://github.com/adobe-fonts/source-han-sans/releases',
+    'syst-cn-v': 'https://github.com/adobe-fonts/source-han-serif/releases',
+    'smiley-sans': 'https://github.com/atelier-anchor/smiley-sans/releases',
+    'jb-mono': 'https://www.jetbrains.com/lp/mono/',
+    'cascadia-mono-v': 'https://github.com/microsoft/cascadia-code/releases',
+    'fira-code-v': 'https://fonts.google.com/specimen/Fira+Code',
+    'inconsolata-v': 'https://fonts.google.com/specimen/Inconsolata',
+    'martian-mono-v': 'https://fonts.google.com/specimen/Martian+Mono',
+    'spline-sans-mono-v': 'https://fonts.google.com/specimen/Spline+Sans+Mono',
+    'inter-v': 'https://fonts.google.com/specimen/Inter',
+    'source-sans-3-v': 'https://fonts.google.com/specimen/Source+Sans+3',
+    'noto-sans-v': 'https://fonts.google.com/specimen/Noto+Sans',
+    'roboto-flex-v': 'https://fonts.google.com/specimen/Roboto+Flex',
+    'open-sans-v': 'https://fonts.google.com/specimen/Open+Sans',
+    'montserrat-v': 'https://fonts.google.com/specimen/Montserrat',
+    'raleway-v': 'https://fonts.google.com/specimen/Raleway',
+    'manrope-v': 'https://fonts.google.com/specimen/Manrope',
+    'space-grotesk-v': 'https://fonts.google.com/specimen/Space+Grotesk',
+    'outfit-v': 'https://fonts.google.com/specimen/Outfit',
+    'plus-jakarta-sans-v': 'https://fonts.google.com/specimen/Plus+Jakarta+Sans',
+    'oswald-v': 'https://fonts.google.com/specimen/Oswald',
+    'archivo-v': 'https://fonts.google.com/specimen/Archivo',
+    'public-sans-v': 'https://fonts.google.com/specimen/Public+Sans',
+    'work-sans-v': 'https://fonts.google.com/specimen/Work+Sans',
+    'source-serif-4-v': 'https://fonts.google.com/specimen/Source+Serif+4',
+    'newsreader-v': 'https://fonts.google.com/specimen/Newsreader',
+    'literata-v': 'https://fonts.google.com/specimen/Literata',
+    'noto-serif-v': 'https://fonts.google.com/specimen/Noto+Serif',
+    'roboto-serif-v': 'https://fonts.google.com/specimen/Roboto+Serif',
+    'lora-v': 'https://fonts.google.com/specimen/Lora',
+    'playfair-display-v': 'https://fonts.google.com/specimen/Playfair+Display',
+    'merriweather-v': 'https://fonts.google.com/specimen/Merriweather',
+    'fraunces-v': 'https://fonts.google.com/specimen/Fraunces',
+    'crimson-pro-v': 'https://fonts.google.com/specimen/Crimson+Pro',
+    'bitter-v': 'https://fonts.google.com/specimen/Bitter',
+    'libre-baskerville': 'https://fonts.google.com/specimen/Libre+Baskerville',
+    'dm-serif-display': 'https://fonts.google.com/specimen/DM+Serif+Display',
+    'ibm-plex-sans': 'https://www.ibm.com/plex/',
+    'ibm-plex-serif': 'https://www.ibm.com/plex/',
+    'ibm-plex-mono': 'https://www.ibm.com/plex/',
+    'ubuntu': 'https://design.ubuntu.com/font',
+    'eb-garamond-v': 'https://fonts.google.com/specimen/EB+Garamond',
+    'bodoni-moda-v': 'https://fonts.google.com/specimen/Bodoni+Moda',
+    'cormorant-v': 'https://fonts.google.com/specimen/Cormorant',
+    'vollkorn-v': 'https://fonts.google.com/specimen/Vollkorn',
+    'recursive-v': 'https://fonts.google.com/specimen/Recursive',
+    'anybody-v': 'https://fonts.google.com/specimen/Anybody',
+    'saira-v': 'https://fonts.google.com/specimen/Saira',
+    'epilogue-v': 'https://fonts.google.com/specimen/Epilogue',
+    'rubik-v': 'https://fonts.google.com/specimen/Rubik',
+    'dm-sans-v': 'https://fonts.google.com/specimen/DM+Sans',
+    'figtree-v': 'https://fonts.google.com/specimen/Figtree',
+    'lexend-v': 'https://fonts.google.com/specimen/Lexend',
+    'sora-v': 'https://fonts.google.com/specimen/Sora',
+    'jost-v': 'https://fonts.google.com/specimen/Jost',
+    'quicksand-v': 'https://fonts.google.com/specimen/Quicksand',
+    'caveat-v': 'https://fonts.google.com/specimen/Caveat',
+    'shantell-sans-v': 'https://fonts.google.com/specimen/Shantell+Sans',
+    'darker-grotesque-v': 'https://fonts.google.com/specimen/Darker+Grotesque',
+    'red-hat-mono-v': 'https://fonts.google.com/specimen/Red+Hat+Mono',
   };
-  w.addEventListener('input', apply);
-  apply();
+
+  // 各族实际字重轴区间（与产物 css 的 font-weight 声明一致）；未列出的默认 100–900
+  const WEIGHT_RANGES = {
+    'roboto-flex-v': [100, 1000],
+    'jb-mono': [100, 800], 'martian-mono-v': [100, 800],
+    'cascadia-mono-v': [200, 700], 'oswald-v': [200, 700],
+    'open-sans-v': [300, 800],
+    'fira-code-v': [300, 700], 'space-grotesk-v': [300, 700], 'spline-sans-mono-v': [300, 700],
+    'crimson-pro-v': [200, 900], 'inconsolata-v': [200, 900], 'literata-v': [200, 900],
+    'source-sans-3-v': [200, 900], 'source-serif-4-v': [200, 900],
+    'manrope-v': [200, 800], 'newsreader-v': [200, 800], 'plus-jakarta-sans-v': [200, 800],
+    'eb-garamond-v': [400, 800], 'bodoni-moda-v': [400, 900], 'cormorant-v': [300, 700], 'vollkorn-v': [400, 900],
+    'recursive-v': [300, 1000], 'rubik-v': [300, 900], 'dm-sans-v': [100, 1000], 'figtree-v': [300, 900],
+    'sora-v': [100, 800], 'quicksand-v': [300, 700], 'caveat-v': [400, 700], 'shantell-sans-v': [300, 800],
+    'darker-grotesque-v': [300, 900], 'red-hat-mono-v': [300, 700],
+  };
+
+  // 多轴族轴定义（[tag, min, max, default]，提取自产物 woff2 的 fvar 表 / scripts/axes.json）
+  const AXES = {"anybody-v":[["wdth",50,150,100],["wght",100,900,100]],"archivo-v":[["wght",100,900,600],["wdth",62,125,100]],"bodoni-moda-v":[["wght",400,900,400],["opsz",6,96,11]],"dm-sans-v":[["opsz",9,40,9],["wght",100,1000,400]],"fraunces-v":[["opsz",9,144,9],["wght",100,900,900],["SOFT",0,100,0],["WONK",0,1,1]],"inconsolata-v":[["wght",200,900,400],["wdth",50,200,100]],"inter-v":[["opsz",14,32,14],["wght",100,900,400]],"literata-v":[["opsz",7,72,12],["wght",200,900,400]],"martian-mono-v":[["wght",100,800,400],["wdth",75,112.5,100]],"newsreader-v":[["wght",200,800,400],["opsz",6,72,16]],"noto-sans-v":[["wght",100,900,400],["wdth",62.5,100,100]],"noto-serif-v":[["wght",100,900,400],["wdth",62.5,100,100]],"open-sans-v":[["wght",300,800,400],["wdth",75,100,100]],"recursive-v":[["MONO",0,1,0],["CASL",0,1,0],["wght",300,1000,400],["slnt",-15,0,0],["CRSV",0,1,0]],"roboto-flex-v":[["opsz",8,144,14],["wght",100,1000,400],["GRAD",-200,150,0],["wdth",25,151,100],["slnt",-10,0,0],["XOPQ",27,175,135],["YOPQ",25,135,120],["XTRA",323,603,436],["YTUC",528,760,712],["YTLC",416,570,514],["YTAS",649,854,750],["YTDE",-305,-98,-85],["YTFI",560,788,658]],"roboto-serif-v":[["wdth",50,150,100],["opsz",8,144,20],["wght",100,900,400],["GRAD",-50,100,0]],"saira-v":[["wght",100,900,400],["wdth",50,125,100]],"shantell-sans-v":[["wght",300,800,400],["INFM",0,100,0],["BNCE",-100,100,0],["SPAC",0,100,0]],"source-serif-4-v":[["wght",200,900,400],["opsz",8,60,16]]};
+
+  // 许可证徽章：默认 SIL OFL（免费商用 + 可再分发）；例外在此登记
+  const LICENSES = {
+    'minsans-v': { label: '免费商用 · 分发受限', cls: 'lic-warn' },
+    'ubuntu': { label: 'UFL · 免费商用', cls: 'lic-ok' },
+  };
+  const DEFAULT_LIC = { label: 'OFL · 免费商用', cls: 'lic-ok' };
+  for (const card of document.querySelectorAll('.card')) {
+    const famEl = card.querySelector('.fam');
+    // 族名取第一个文本节点（徽章 span 会在下方追加，不能依赖整体 textContent）
+    const fam = (famEl.firstChild?.textContent ?? '').trim();
+    card.dataset.fam = fam; // 存档，后续控件循环从 data-fam 读取
+    const lic = LICENSES[fam] ?? DEFAULT_LIC;
+    const b = document.createElement('span');
+    b.className = 'lic ' + lic.cls;
+    b.textContent = lic.label;
+    famEl.appendChild(b);
+
+    // 出处链接
+    const sub = card.querySelector('.fam-sub');
+    const url = ORIGINS[fam];
+    if (isNotNil(sub) && isNotNil(url)) {
+      const a = document.createElement('a');
+      a.className = 'origin'; a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = '官网 ↗';
+      sub.appendChild(a);
+    }
+  }
+  function isNotNil(v) { return v !== null && v !== undefined; }
+
+  // 卡内全部样张（主 + 副）
+  const samples = (card) => card.querySelectorAll('.spec, .spec-sub');
+
+  // 统一样张体系：同一句文字跨字体横向对比（specimen 标准做法）
+  const SPECIMENS = {
+    zh: '落霞与孤鹜齐飞，秋水共长天一色',
+    en: 'The quick brown fox jumps over the lazy dog',
+    chars: 'AaBbGgQq 0123456789 ¥$€£ → ≠ ≈ ± ÷',
+  };
+  for (const grid of document.querySelectorAll('.grid')) {
+    const zh = grid.dataset.lang === 'zh';
+    for (const card of grid.querySelectorAll('.card')) {
+      const spec = card.querySelector('.spec');
+      let sub = card.querySelector('.spec-sub');
+      if (isNotNil(sub) === false) {
+        sub = document.createElement('p');
+        sub.className = 'spec-sub';
+        sub.style.fontFamily = spec.style.fontFamily;
+        spec.after(sub);
+      }
+      spec.textContent = zh ? SPECIMENS.zh : SPECIMENS.en;
+      sub.textContent = zh ? SPECIMENS.en : SPECIMENS.chars;
+    }
+  }
+
+  // 每卡控件区：多轴族=每轴一个滑杆（font-variation-settings）；单轴 VF=字重滑杆；静态=按钮组；末行字号
+  for (const card of document.querySelectorAll('.card')) {
+    const fam = card.dataset.fam;
+    if (fam === 'roboto-flex-v') continue; // 旗舰长卡由下方专属逻辑接管
+    const ctrls = document.createElement('div');
+    ctrls.className = 'ctrls';
+
+    const axes = AXES[fam];
+    if (Array.isArray(axes) && axes.length > 1) {
+      // ---- 多轴：每轴一滑杆，全部走 font-variation-settings ----
+      const state = axes.map((a) => ({ tag: a[0], val: a[3] }));
+      const apply = () => {
+        const s = state.map((x) => `'${x.tag}' ${x.val}`).join(', ');
+        samples(card).forEach((el) => { el.style.fontVariationSettings = s; });
+      };
+      for (let i = 0; i < axes.length; i++) {
+        const [tag, min, max, def] = axes[i];
+        const span = max - min;
+        const step = span <= 2 ? 0.01 : span <= 10 ? 0.1 : 1;
+        const row = document.createElement('div');
+        row.className = 'ctrl';
+        const lbl = document.createElement('span'); lbl.className = 'lbl'; lbl.textContent = tag;
+        const range = document.createElement('input');
+        range.type = 'range'; range.min = String(min); range.max = String(max);
+        range.step = String(step); range.value = String(def);
+        const out = document.createElement('output'); out.textContent = String(def);
+        range.addEventListener('input', () => {
+          state[i].val = Number(range.value);
+          out.textContent = range.value;
+          apply();
+        });
+        row.append(lbl, range, out);
+        ctrls.appendChild(row);
+      }
+      apply();
+    } else {
+    // ---- 字重行 ----
+    const wRow = document.createElement('div');
+    wRow.className = 'ctrl';
+    const wLbl = document.createElement('span'); wLbl.className = 'lbl'; wLbl.textContent = '字重';
+    wRow.appendChild(wLbl);
+
+    if (card.classList.contains('vf')) {
+      const [wmin, wmax] = WEIGHT_RANGES[fam] ?? [100, 900];
+      const init = Math.min(Math.max(500, wmin), wmax);
+      const range = document.createElement('input');
+      range.type = 'range'; range.min = String(wmin); range.max = String(wmax);
+      range.step = '10'; range.value = String(init);
+      const out = document.createElement('output'); out.textContent = String(init);
+      range.addEventListener('input', () => {
+        samples(card).forEach((el) => { el.style.fontWeight = range.value; });
+        out.textContent = range.value;
+      });
+      samples(card).forEach((el) => { el.style.fontWeight = String(init); });
+      wRow.append(range, out);
+    } else if (card.dataset.weights) {
+      const box = document.createElement('div');
+      box.className = 'wbtns';
+      const activate = (btn) => {
+        box.querySelectorAll('.wbtn').forEach((x) => x.classList.remove('on'));
+        btn.classList.add('on');
+      };
+      const makeBtn = (label, apply) => {
+        const b = document.createElement('button');
+        b.className = 'wbtn'; b.type = 'button'; b.textContent = label;
+        b.addEventListener('click', () => { activate(b); apply(); });
+        box.appendChild(b);
+        return b;
+      };
+      const weights = card.dataset.weights.split(',').map(Number);
+      const defaultIdx = weights.includes(400) ? weights.indexOf(400) : 0;
+      weights.forEach((w, i) => {
+        const b = makeBtn(String(w), () => {
+          samples(card).forEach((el) => { el.style.fontStyle = 'normal'; el.style.fontWeight = String(w); });
+        });
+        if (i === defaultIdx) {
+          activate(b);
+          samples(card).forEach((el) => { el.style.fontWeight = String(w); });
+        }
+      });
+      if (card.hasAttribute('data-italic')) {
+        makeBtn('Italic', () => { samples(card).forEach((el) => { el.style.fontStyle = 'italic'; }); });
+      }
+      wRow.appendChild(box);
+    }
+    ctrls.appendChild(wRow);
+
+    } // 结束字重/静态分支
+
+    // ---- 字号行（作用主样张，通过 --sz 变量） ----
+    const sRow = document.createElement('div');
+    sRow.className = 'ctrl';
+    const sLbl = document.createElement('span'); sLbl.className = 'lbl'; sLbl.textContent = '字号';
+    const sRange = document.createElement('input');
+    sRange.type = 'range'; sRange.min = '14'; sRange.max = '44'; sRange.step = '1'; sRange.value = '22';
+    const sOut = document.createElement('output'); sOut.textContent = '22px';
+    sRange.addEventListener('input', () => {
+      card.style.setProperty('--sz', sRange.value + 'px');
+      sOut.textContent = sRange.value + 'px';
+    });
+    sRow.append(sLbl, sRange, sOut);
+    ctrls.appendChild(sRow);
+
+    card.appendChild(ctrls);
+  }
+
+  // ---- Roboto Flex 旗舰长卡：13 轴分四组网格排布 ----
+  {
+    const spec = document.getElementById('rf-spec');
+    const host = document.getElementById('rf-ctrls');
+    const groups = [
+      { title: '核心（字重/宽度/光学尺寸/渐变/倾斜）', tags: ['wght', 'wdth', 'opsz', 'GRAD', 'slnt'] },
+      { title: '笔画粗细比例', tags: ['XOPQ', 'YOPQ', 'XTRA'] },
+      { title: '大小写与字形高度', tags: ['YTUC', 'YTLC', 'YTAS', 'YTDE'] },
+      { title: '衬线延伸', tags: ['YTFI'] },
+    ];
+    const axes = Object.fromEntries(AXES['roboto-flex-v'].map((a) => [a[0], a]));
+    const state = {};
+    const apply = () => {
+      spec.style.fontVariationSettings = Object.entries(state).map(([t, v]) => `'${t}' ${v}`).join(', ');
+      const w = state['wght'];
+      if (w !== undefined) {
+        spec.style.fontWeight = String(w);
+        spec.style.fontStyle = state['slnt'] < -5 ? 'italic' : 'normal';
+      }
+    };
+    const grid = document.createElement('div');
+    grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px 22px';
+    for (const g of groups) {
+      const head = document.createElement('div');
+      head.style.cssText = 'font-size:11px;color:var(--ink-dim);grid-column:1/-1;margin-top:6px';
+      head.textContent = g.title;
+      grid.appendChild(head);
+      for (const tag of g.tags) {
+        const [_, min, max, def] = axes[tag];
+        const span = max - min;
+        const row = document.createElement('div');
+        row.className = 'ctrl';
+        const lbl = document.createElement('span'); lbl.className = 'lbl'; lbl.textContent = tag;
+        const range = document.createElement('input');
+        range.type = 'range'; range.min = String(min); range.max = String(max);
+        range.step = String(span <= 2 ? 0.01 : span <= 10 ? 0.1 : 1); range.value = String(def);
+        const out = document.createElement('output'); out.textContent = String(def);
+        range.addEventListener('input', () => {
+          state[tag] = Number(range.value);
+          out.textContent = range.value;
+          apply();
+        });
+        state[tag] = def;
+        row.append(lbl, range, out);
+        grid.appendChild(row);
+      }
+    }
+    apply();
+    host.appendChild(grid);
+
+    // 字号行（与其他卡一致；段落通过 --sz 变量取字号）
+    const sRow = document.createElement('div');
+    sRow.className = 'ctrl';
+    sRow.style.marginTop = '12px';
+    const sLbl = document.createElement('span'); sLbl.className = 'lbl'; sLbl.textContent = '字号';
+    const sRange = document.createElement('input');
+    sRange.type = 'range'; sRange.min = '14'; sRange.max = '56'; sRange.step = '1'; sRange.value = '18';
+    const sOut = document.createElement('output'); sOut.textContent = '18px';
+    const applySize = () => {
+      document.getElementById('rf-spec').style.setProperty('--sz', sRange.value + 'px');
+      sOut.textContent = sRange.value + 'px';
+    };
+    sRange.addEventListener('input', applySize);
+    sRow.append(sLbl, sRange, sOut);
+    host.appendChild(sRow);
+    applySize();
+  }
 </script>
 </body>
 </html>

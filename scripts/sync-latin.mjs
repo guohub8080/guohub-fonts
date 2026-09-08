@@ -12,7 +12,11 @@
  * 更新流程：pnpm update 相关包 → node scripts/sync-latin.mjs → 提交打 tag。
  */
 import { readdir, readFile, writeFile, rm, mkdir, cp } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+// 每族每样式的「最全轴组合」文件（由 fontTools 从 woff2 fvar 表提取，scripts/extract-axes 生成）
+const AXES_DATA = JSON.parse(readFileSync(new URL('../scripts/axes.json', import.meta.url), 'utf8'));
 
 /** 字族清单：dir 产物目录名（= 规范 family 名），pkg npm 包名
  *  keepSubsets：只保留这些 subset 的分片（fontsource 分片名形如 {font}-{subset}-{axis}-{style}.woff2）。
@@ -50,7 +54,27 @@ const FONTS = [
   { dir: 'inconsolata-v', pkg: '@fontsource-variable/inconsolata' },
   { dir: 'martian-mono-v', pkg: '@fontsource-variable/martian-mono' },
   { dir: 'spline-sans-mono-v', pkg: '@fontsource-variable/spline-sans-mono' },
+  { dir: 'red-hat-mono-v', pkg: '@fontsource-variable/red-hat-mono' },
+  { dir: 'eb-garamond-v', pkg: '@fontsource-variable/eb-garamond' },
+  { dir: 'bodoni-moda-v', pkg: '@fontsource-variable/bodoni-moda' },
+  { dir: 'cormorant-v', pkg: '@fontsource-variable/cormorant' },
+  { dir: 'vollkorn-v', pkg: '@fontsource-variable/vollkorn' },
+  { dir: 'recursive-v', pkg: '@fontsource-variable/recursive' },
+  { dir: 'anybody-v', pkg: '@fontsource-variable/anybody' },
+  { dir: 'saira-v', pkg: '@fontsource-variable/saira' },
+  { dir: 'epilogue-v', pkg: '@fontsource-variable/epilogue' },
+  { dir: 'rubik-v', pkg: '@fontsource-variable/rubik' },
+  { dir: 'dm-sans-v', pkg: '@fontsource-variable/dm-sans' },
+  { dir: 'figtree-v', pkg: '@fontsource-variable/figtree' },
+  { dir: 'lexend-v', pkg: '@fontsource-variable/lexend' },
+  { dir: 'sora-v', pkg: '@fontsource-variable/sora' },
+  { dir: 'jost-v', pkg: '@fontsource-variable/jost' },
+  { dir: 'quicksand-v', pkg: '@fontsource-variable/quicksand' },
+  { dir: 'caveat-v', pkg: '@fontsource-variable/caveat' },
+  { dir: 'shantell-sans-v', pkg: '@fontsource-variable/shantell-sans' },
+  { dir: 'darker-grotesque-v', pkg: '@fontsource-variable/darker-grotesque' },
   // ---- 静态字重（无 VF 发行，不带 -v） ----
+  { dir: 'ubuntu', pkg: '@fontsource/ubuntu' },
   { dir: 'ibm-plex-sans', pkg: '@fontsource/ibm-plex-sans' },
   { dir: 'ibm-plex-serif', pkg: '@fontsource/ibm-plex-serif' },
   { dir: 'ibm-plex-mono', pkg: '@fontsource/ibm-plex-mono' },
@@ -60,6 +84,41 @@ const FONTS = [
 
 const KEEP_SUBSETS = ['latin', 'latin-ext'];
 const isKept = (filename) => KEEP_SUBSETS.some((s) => filename.includes(`-${s}-`));
+
+/** 从 fontsource 文件名解析样式与轴组合段：{font}-{subset}-{combo}-{style}.woff2（从尾部数） */
+function parseFileMeta(name) {
+  const parts = name.replace('.woff2', '').split('-');
+  if (parts.length < 4) return null;
+  return { style: parts[parts.length - 1], combo: parts[parts.length - 2] };
+}
+
+/**
+ * CSS 后处理：fontsource 把不同轴组合拆成不同 woff2 文件（wght/opsz/standard/full…），
+ * 全量合并时后声明覆盖前声明，最终生效的往往是「仅 wght」的子组合——多轴形同虚设。
+ * 本函数只保留每族每样式「轴最全组合」（axes.json 记录的那个组合，跨 subset 全保留），
+ * 使 font-variation-settings 的所有轴都真实可调。
+ */
+function keepFullestAxes(css, dir) {
+  const info = AXES_DATA[dir];
+  if (!info) return css;
+  const targetCombo = {};
+  for (const [style, s] of Object.entries(info)) {
+    if (!s || !s.file) continue;
+    const meta = parseFileMeta(s.file);
+    if (meta) targetCombo[meta.style] = meta.combo;
+  }
+  if (Object.keys(targetCombo).length === 0) return css;
+  const blocks = css.match(/@font-face\s*\{[^}]*\}/g) || [];
+  const kept = blocks.filter((b) => {
+    const m = b.match(/url\((?:\.?\/)?files\/([^)]+\.woff2)\)/);
+    if (!m) return true;
+    const meta = parseFileMeta(m[1]);
+    if (!meta) return true;
+    const target = targetCombo[meta.style];
+    return target === undefined || meta.combo === target;
+  });
+  return `/* guohub-fonts ${dir} —— 仅保留最全轴组合（${Object.values(targetCombo).join('/')}），全部轴可经 font-variation-settings 调整 */\n` + kept.join('\n');
+}
 
 const results = [];
 
@@ -86,8 +145,11 @@ for (const { dir, pkg } of FONTS) {
   let merged = '';
   for (const f of cssFiles) merged += `\n/* ${f} */\n` + (await readFile(`${src}/${f}`, 'utf8'));
 
-  // 3) family 名重写为规范名（全小写、连字符、VF 带 -v）
-  const css = merged.replace(/font-family:\s*'[^']+';/g, `font-family: '${dir}';`);
+  // 3) family 名重写为规范名（全小写、连字符、VF 带 -v），并只保留最全轴组合的声明
+  const css = keepFullestAxes(
+    merged.replace(/font-family:\s*'[^']+';/g, `font-family: '${dir}';`),
+    dir,
+  );
   await writeFile(`${outDir}/${dir}.css`, css, 'utf8');
 
   const shards = copied;

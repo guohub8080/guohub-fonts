@@ -1,0 +1,1336 @@
+{
+ "anybody-v": {
+  "italic": {
+   "file": "anybody-latin-ext-wdth-italic.woff2",
+   "axes": [
+    [
+     "wdth",
+     50.0,
+     150.0,
+     100.0
+    ],
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "anybody-latin-ext-wdth-normal.woff2",
+   "axes": [
+    [
+     "wdth",
+     50.0,
+     150.0,
+     100.0
+    ],
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "archivo-v": {
+  "normal": {
+   "file": "archivo-latin-standard-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     600.0
+    ],
+    [
+     "wdth",
+     62.0,
+     125.0,
+     100.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "archivo-latin-standard-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     600.0
+    ],
+    [
+     "wdth",
+     62.0,
+     125.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "bitter-v": {
+  "italic": {
+   "file": "bitter-latin-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "bitter-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "bodoni-moda-v": {
+  "italic": {
+   "file": "bodoni-moda-latin-standard-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     400.0,
+     900.0,
+     400.0
+    ],
+    [
+     "opsz",
+     6.0,
+     96.0,
+     11.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "bodoni-moda-latin-standard-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     400.0,
+     900.0,
+     400.0
+    ],
+    [
+     "opsz",
+     6.0,
+     96.0,
+     11.0
+    ]
+   ]
+  }
+ },
+ "cascadia-mono-v": {
+  "normal": {
+   "file": "cascadia-mono-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     700.0,
+     400.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "cascadia-mono-latin-ext-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     700.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "caveat-v": {
+  "normal": {
+   "file": "caveat-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     400.0,
+     700.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "cormorant-v": {
+  "normal": {
+   "file": "cormorant-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     700.0,
+     300.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "cormorant-latin-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     700.0,
+     300.0
+    ]
+   ]
+  }
+ },
+ "crimson-pro-v": {
+  "italic": {
+   "file": "crimson-pro-latin-ext-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     900.0,
+     400.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "crimson-pro-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     900.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "darker-grotesque-v": {
+  "normal": {
+   "file": "darker-grotesque-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     900.0,
+     300.0
+    ]
+   ]
+  }
+ },
+ "dm-sans-v": {
+  "normal": {
+   "file": "dm-sans-latin-ext-standard-normal.woff2",
+   "axes": [
+    [
+     "opsz",
+     9.0,
+     40.0,
+     9.0
+    ],
+    [
+     "wght",
+     100.0,
+     1000.0,
+     400.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "dm-sans-latin-ext-standard-italic.woff2",
+   "axes": [
+    [
+     "opsz",
+     9.0,
+     40.0,
+     9.0
+    ],
+    [
+     "wght",
+     100.0,
+     1000.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "eb-garamond-v": {
+  "normal": {
+   "file": "eb-garamond-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     400.0,
+     800.0,
+     400.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "eb-garamond-latin-ext-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     400.0,
+     800.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "epilogue-v": {
+  "normal": {
+   "file": "epilogue-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "epilogue-latin-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "figtree-v": {
+  "normal": {
+   "file": "figtree-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     900.0,
+     300.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "figtree-latin-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     900.0,
+     300.0
+    ]
+   ]
+  }
+ },
+ "fira-code-v": {
+  "normal": {
+   "file": "fira-code-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     700.0,
+     300.0
+    ]
+   ]
+  }
+ },
+ "fraunces-v": {
+  "italic": {
+   "file": "fraunces-latin-full-italic.woff2",
+   "axes": [
+    [
+     "opsz",
+     9.0,
+     144.0,
+     9.0
+    ],
+    [
+     "wght",
+     100.0,
+     900.0,
+     900.0
+    ],
+    [
+     "SOFT",
+     0.0,
+     100.0,
+     0.0
+    ],
+    [
+     "WONK",
+     0.0,
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "fraunces-latin-full-normal.woff2",
+   "axes": [
+    [
+     "opsz",
+     9.0,
+     144.0,
+     9.0
+    ],
+    [
+     "wght",
+     100.0,
+     900.0,
+     900.0
+    ],
+    [
+     "SOFT",
+     0.0,
+     100.0,
+     0.0
+    ],
+    [
+     "WONK",
+     0.0,
+     1.0,
+     1.0
+    ]
+   ]
+  }
+ },
+ "inconsolata-v": {
+  "normal": {
+   "file": "inconsolata-latin-standard-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     900.0,
+     400.0
+    ],
+    [
+     "wdth",
+     50.0,
+     200.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "inter-v": {
+  "italic": {
+   "file": "inter-latin-standard-italic.woff2",
+   "axes": [
+    [
+     "opsz",
+     14.0,
+     32.0,
+     14.0
+    ],
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "inter-latin-standard-normal.woff2",
+   "axes": [
+    [
+     "opsz",
+     14.0,
+     32.0,
+     14.0
+    ],
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "jost-v": {
+  "italic": {
+   "file": "jost-latin-ext-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "jost-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "lexend-v": {
+  "normal": {
+   "file": "lexend-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "literata-v": {
+  "italic": {
+   "file": "literata-latin-standard-italic.woff2",
+   "axes": [
+    [
+     "opsz",
+     7.0,
+     72.0,
+     12.0
+    ],
+    [
+     "wght",
+     200.0,
+     900.0,
+     400.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "literata-latin-standard-normal.woff2",
+   "axes": [
+    [
+     "opsz",
+     7.0,
+     72.0,
+     12.0
+    ],
+    [
+     "wght",
+     200.0,
+     900.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "manrope-v": {
+  "normal": {
+   "file": "manrope-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     800.0,
+     200.0
+    ]
+   ]
+  }
+ },
+ "martian-mono-v": {
+  "normal": {
+   "file": "martian-mono-latin-ext-standard-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     800.0,
+     400.0
+    ],
+    [
+     "wdth",
+     75.0,
+     112.5,
+     112.5
+    ]
+   ]
+  }
+ },
+ "montserrat-v": {
+  "italic": {
+   "file": "montserrat-latin-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "montserrat-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "newsreader-v": {
+  "italic": {
+   "file": "newsreader-latin-ext-opsz-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     800.0,
+     400.0
+    ],
+    [
+     "opsz",
+     6.0,
+     72.0,
+     18.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "newsreader-latin-ext-opsz-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     800.0,
+     400.0
+    ],
+    [
+     "opsz",
+     6.0,
+     72.0,
+     18.0
+    ]
+   ]
+  }
+ },
+ "noto-sans-v": {
+  "normal": {
+   "file": "noto-sans-latin-ext-wdth-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ],
+    [
+     "wdth",
+     62.5,
+     100.0,
+     100.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "noto-sans-latin-ext-wdth-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ],
+    [
+     "wdth",
+     62.5,
+     100.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "noto-serif-v": {
+  "normal": {
+   "file": "noto-serif-latin-ext-standard-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ],
+    [
+     "wdth",
+     62.5,
+     100.0,
+     100.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "noto-serif-latin-ext-standard-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ],
+    [
+     "wdth",
+     62.5,
+     100.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "open-sans-v": {
+  "italic": {
+   "file": "open-sans-latin-standard-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     800.0,
+     400.0
+    ],
+    [
+     "wdth",
+     75.0,
+     100.0,
+     100.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "open-sans-latin-standard-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     800.0,
+     400.0
+    ],
+    [
+     "wdth",
+     75.0,
+     100.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "oswald-v": {
+  "normal": {
+   "file": "oswald-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     700.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "outfit-v": {
+  "normal": {
+   "file": "outfit-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "plus-jakarta-sans-v": {
+  "italic": {
+   "file": "plus-jakarta-sans-latin-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     800.0,
+     400.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "plus-jakarta-sans-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     800.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "public-sans-v": {
+  "italic": {
+   "file": "public-sans-latin-ext-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "public-sans-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "quicksand-v": {
+  "normal": {
+   "file": "quicksand-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     700.0,
+     300.0
+    ]
+   ]
+  }
+ },
+ "raleway-v": {
+  "italic": {
+   "file": "raleway-latin-ext-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "raleway-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "recursive-v": {
+  "normal": {
+   "file": "recursive-latin-full-normal.woff2",
+   "axes": [
+    [
+     "MONO",
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     "CASL",
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     "wght",
+     300.0,
+     1000.0,
+     300.0
+    ],
+    [
+     "slnt",
+     -15.0,
+     0.0,
+     0.0
+    ],
+    [
+     "CRSV",
+     0.0,
+     1.0,
+     0.5
+    ]
+   ]
+  }
+ },
+ "red-hat-mono-v": {
+  "italic": {
+   "file": "red-hat-mono-latin-ext-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     700.0,
+     400.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "red-hat-mono-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     700.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "roboto-flex-v": {
+  "normal": {
+   "file": "roboto-flex-latin-full-normal.woff2",
+   "axes": [
+    [
+     "opsz",
+     8.0,
+     144.0,
+     14.0
+    ],
+    [
+     "wght",
+     100.0,
+     1000.0,
+     400.0
+    ],
+    [
+     "GRAD",
+     -200.0,
+     150.0,
+     0.0
+    ],
+    [
+     "wdth",
+     25.0,
+     151.0,
+     100.0
+    ],
+    [
+     "slnt",
+     -10.0,
+     0.0,
+     0.0
+    ],
+    [
+     "XOPQ",
+     27.0,
+     175.0,
+     96.0
+    ],
+    [
+     "YOPQ",
+     25.0,
+     135.0,
+     79.0
+    ],
+    [
+     "XTRA",
+     323.0,
+     603.0,
+     468.0
+    ],
+    [
+     "YTUC",
+     528.0,
+     760.0,
+     712.0
+    ],
+    [
+     "YTLC",
+     416.0,
+     570.0,
+     514.0
+    ],
+    [
+     "YTAS",
+     649.0,
+     854.0,
+     750.0
+    ],
+    [
+     "YTDE",
+     -305.0,
+     -98.0,
+     -203.0
+    ],
+    [
+     "YTFI",
+     560.0,
+     788.0,
+     738.0
+    ]
+   ]
+  }
+ },
+ "roboto-serif-v": {
+  "normal": {
+   "file": "roboto-serif-latin-ext-full-normal.woff2",
+   "axes": [
+    [
+     "wdth",
+     50.0,
+     150.0,
+     100.0
+    ],
+    [
+     "opsz",
+     8.0,
+     144.0,
+     20.0
+    ],
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ],
+    [
+     "GRAD",
+     -50.0,
+     100.0,
+     0.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "roboto-serif-latin-ext-full-italic.woff2",
+   "axes": [
+    [
+     "wdth",
+     50.0,
+     150.0,
+     100.0
+    ],
+    [
+     "opsz",
+     8.0,
+     144.0,
+     20.0
+    ],
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ],
+    [
+     "GRAD",
+     -50.0,
+     100.0,
+     0.0
+    ]
+   ]
+  }
+ },
+ "rubik-v": {
+  "normal": {
+   "file": "rubik-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     900.0,
+     300.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "rubik-latin-ext-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     900.0,
+     300.0
+    ]
+   ]
+  }
+ },
+ "saira-v": {
+  "italic": {
+   "file": "saira-latin-wdth-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ],
+    [
+     "wdth",
+     50.0,
+     125.0,
+     100.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "saira-latin-wdth-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     100.0
+    ],
+    [
+     "wdth",
+     50.0,
+     125.0,
+     100.0
+    ]
+   ]
+  }
+ },
+ "shantell-sans-v": {
+  "normal": {
+   "file": "shantell-sans-latin-full-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     800.0,
+     300.0
+    ],
+    [
+     "INFM",
+     0.0,
+     100.0,
+     0.0
+    ],
+    [
+     "BNCE",
+     -100.0,
+     100.0,
+     0.0
+    ],
+    [
+     "SPAC",
+     0.0,
+     100.0,
+     0.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "shantell-sans-latin-full-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     800.0,
+     300.0
+    ],
+    [
+     "INFM",
+     0.0,
+     100.0,
+     0.0
+    ],
+    [
+     "BNCE",
+     -100.0,
+     100.0,
+     0.0
+    ],
+    [
+     "SPAC",
+     0.0,
+     100.0,
+     0.0
+    ]
+   ]
+  }
+ },
+ "sora-v": {
+  "normal": {
+   "file": "sora-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     800.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "source-sans-3-v": {
+  "italic": {
+   "file": "source-sans-3-latin-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     900.0,
+     200.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "source-sans-3-latin-ext-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     900.0,
+     200.0
+    ]
+   ]
+  }
+ },
+ "source-serif-4-v": {
+  "italic": {
+   "file": "source-serif-4-latin-ext-opsz-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     900.0,
+     400.0
+    ],
+    [
+     "opsz",
+     8.0,
+     60.0,
+     20.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "source-serif-4-latin-ext-opsz-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     200.0,
+     900.0,
+     400.0
+    ],
+    [
+     "opsz",
+     8.0,
+     60.0,
+     20.0
+    ]
+   ]
+  }
+ },
+ "space-grotesk-v": {
+  "normal": {
+   "file": "space-grotesk-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     700.0,
+     300.0
+    ]
+   ]
+  }
+ },
+ "spline-sans-mono-v": {
+  "italic": {
+   "file": "spline-sans-mono-latin-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     700.0,
+     400.0
+    ]
+   ]
+  },
+  "normal": {
+   "file": "spline-sans-mono-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     300.0,
+     700.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "vollkorn-v": {
+  "normal": {
+   "file": "vollkorn-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     400.0,
+     900.0,
+     400.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "vollkorn-latin-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     400.0,
+     900.0,
+     400.0
+    ]
+   ]
+  }
+ },
+ "work-sans-v": {
+  "normal": {
+   "file": "work-sans-latin-wght-normal.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ]
+   ]
+  },
+  "italic": {
+   "file": "work-sans-latin-wght-italic.woff2",
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0,
+     400.0
+    ]
+   ]
+  }
+ }
+}

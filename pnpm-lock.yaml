@@ -8,16 +8,43 @@ importers:
 
   .:
     devDependencies:
+      '@fontsource-variable/anybody':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource-variable/archivo':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource-variable/bitter':
         specifier: ^5.3.0
         version: 5.3.0
+      '@fontsource-variable/bodoni-moda':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource-variable/cascadia-mono':
         specifier: ^5.3.0
         version: 5.3.0
+      '@fontsource-variable/caveat':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/cormorant':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource-variable/crimson-pro':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/darker-grotesque':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/dm-sans':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/eb-garamond':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/epilogue':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/figtree':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource-variable/fira-code':
@@ -30,6 +57,12 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource-variable/inter':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/jost':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/lexend':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource-variable/literata':
@@ -68,13 +101,34 @@ importers:
       '@fontsource-variable/public-sans':
         specifier: ^5.3.0
         version: 5.3.0
+      '@fontsource-variable/quicksand':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource-variable/raleway':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/recursive':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/red-hat-mono':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource-variable/roboto-flex':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource-variable/roboto-serif':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/rubik':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/saira':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/shantell-sans':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/sora':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource-variable/source-sans-3':
@@ -87,6 +141,9 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource-variable/spline-sans-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/vollkorn':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource-variable/work-sans':
@@ -107,11 +164,17 @@ importers:
       '@fontsource/libre-baskerville':
         specifier: ^5.3.0
         version: 5.3.0
+      '@fontsource/ubuntu':
+        specifier: ^5.3.0
+        version: 5.3.0
       cn-font-split:
         specifier: ^7.4.0
         version: 7.4.0
 
 packages:
+
+  '@fontsource-variable/anybody@5.3.0':
+    resolution: {integrity: sha512-3u/FSV3mGv9xW3x+CdK9lAZYT1Y3NaRA1bexeoIuk9s5QE8sD8OOTcofvpPx0Z6M0Fq1WAJ06ZAw8hivdRQWHQ==}
 
   '@fontsource-variable/archivo@5.3.0':
     resolution: {integrity: sha512-HogK8FJelrD1o7TlZlkIVtHgc20bO5PZRWE7mUeUTdMN055alznQV6/00J00IBeu8FQAH4s3zW9UJNvKExXf+g==}
@@ -119,11 +182,35 @@ packages:
   '@fontsource-variable/bitter@5.3.0':
     resolution: {integrity: sha512-TNGusdX+fjWE2b8pTG7kH1A615DbjjSj8/PwVm+iyiFiLFtioHXt6eH5jIFE2kmiA3Ogp03jEyZDsukotzC+4Q==}
 
+  '@fontsource-variable/bodoni-moda@5.3.0':
+    resolution: {integrity: sha512-yTDXk4+/J8I20KjtkHBbXDQNeE5PR3BZa0gv/YRza+kyxsz+mmg0la/n/hsr6+WvSfVP7Lc8lRTjHGIYwBW43A==}
+
   '@fontsource-variable/cascadia-mono@5.3.0':
     resolution: {integrity: sha512-yjP6nT+gBbDKIKQnIvGcM6YCESYH1zcYpsYc/Qd8BlRtY1kdX8ZEfuiqW0ATiph6+o566KDxQmgo061SqvH9pA==}
 
+  '@fontsource-variable/caveat@5.3.0':
+    resolution: {integrity: sha512-Q3mjghoYIlXgwqBPJKZ4q6f3zu921Gq7UU76r9Z+NAmhapHfX130GIFpOCYf8vt2SIcgCi9RHDT7anfJKg/kiA==}
+
+  '@fontsource-variable/cormorant@5.3.0':
+    resolution: {integrity: sha512-S3/jFZ2+Erx8ML5+lo71rYKqVpJF13CZ3yWX7xfjQk1wFcPhT9Gp+l2tnNSLOx5Mzjn3mQmVPutpvx91O2VqpQ==}
+
   '@fontsource-variable/crimson-pro@5.3.0':
     resolution: {integrity: sha512-CmtGOKsw1H/JcXOcncu8SWOnhWlyLaAMbCVlG9yR5kz95hrxYU3A1+0DxdRbz/MFhCJGxchgqwPxLAlL0cWvdQ==}
+
+  '@fontsource-variable/darker-grotesque@5.3.0':
+    resolution: {integrity: sha512-T6CAwgprtSBUZFhfi6NoPKJjib5HI1R38v52636MQPhDntK0LKy2r3OHirpaBOSjNMsZKQ47m1OY0vZk1MmyZQ==}
+
+  '@fontsource-variable/dm-sans@5.3.0':
+    resolution: {integrity: sha512-BpUG5bqePiDFMBM4ZtLSlPdAIOM990uB1dlXzIf4aw21yQR7BmykedLXXXMqGWsR18aMLOsbWccwJNh3ztTQaA==}
+
+  '@fontsource-variable/eb-garamond@5.3.0':
+    resolution: {integrity: sha512-656OJsA9Vv24yhqRZFEzXnzS2AYgKdEILLgHJYLzzXndgcWFKfSXFqzbRI5/6Yk1Yt7UfWrUeppE5nRQPQMwlQ==}
+
+  '@fontsource-variable/epilogue@5.3.0':
+    resolution: {integrity: sha512-atoQ7bIqgDLX+zlxbxmYpNZ7nqkwwZczkhJhWdaX+UBZufhPWP3vrcKaLVaNcCbRyHeSoX/y/HJNGjKhewEsAg==}
+
+  '@fontsource-variable/figtree@5.3.0':
+    resolution: {integrity: sha512-VRVodD7OiG7apQwE8/2fMjaqpY/a0qRJqL5HtYj8CKIVps+9amaFcdfKmDIf7iqYQx6iPLlArVXAfKeIZmVcNQ==}
 
   '@fontsource-variable/fira-code@5.3.0':
     resolution: {integrity: sha512-ZhvHeknlicraKVSJBa1NrJnXDVByUkC407zwgELYfmnx3p9g8vwIPfQCxx8YD3K7dAeCdLuHJOHlpMfRsIcApQ==}
@@ -136,6 +223,12 @@ packages:
 
   '@fontsource-variable/inter@5.3.0':
     resolution: {integrity: sha512-OupL48va4JNofb97w6NYeF9S7W/kHNKM0Er8Dem5nqi4jeOLrVJDoE8tZEpnMJmtkvNbB1EIPPwHcdkF6b1oUA==}
+
+  '@fontsource-variable/jost@5.3.0':
+    resolution: {integrity: sha512-9FS8iBMJnfyPqQOi9dfMjSwYBIWd0kBD3/jl8VvtbIMY2pK+CSp3oAaTLS1V60rDoM7AfyPvuT+IUfJfGeCTKg==}
+
+  '@fontsource-variable/lexend@5.3.0':
+    resolution: {integrity: sha512-3SXtiZ8rFbT0oaPzEboCG5RM3jtyhpNxandh1jWNLqvrJRfV/eP3R+GGw+o5e3hS1uqmAGutKxSvaWG5oyrimA==}
 
   '@fontsource-variable/literata@5.3.0':
     resolution: {integrity: sha512-1Jw7xvOcoGyB83lxB2nG4bfNbqtX2/TTbdh9sHAOmU064SvmSdulDtA5RBu5JYWf64fdaKX7xU+z3GO1T2bCHA==}
@@ -173,14 +266,35 @@ packages:
   '@fontsource-variable/public-sans@5.3.0':
     resolution: {integrity: sha512-AVfkmAt50BMXWpOO21FAntiJFKGX6xTc2dSL8dxtDteONe9IuRXJWGbs0EbG955vAMCq23ENeuopuW87cGWDSQ==}
 
+  '@fontsource-variable/quicksand@5.3.0':
+    resolution: {integrity: sha512-EMyoXnGC0uIbjyHDB01MTJoQuODsMo7Q/4XLEwN97YJEeV1WIVFI0QBiW2exGnxvhnMHb+IwQ9E5QZDgGMWCHw==}
+
   '@fontsource-variable/raleway@5.3.0':
     resolution: {integrity: sha512-aSV2k+V6Zz+od0dHpBOzkVxEzmgEdiXcxDfant39jLOx+T89dielQRrZylukwK3Fp+FY255gPqz67ruOfs1rqA==}
+
+  '@fontsource-variable/recursive@5.3.0':
+    resolution: {integrity: sha512-4B4/lWCVeZgdbpJdIIU1sOVO/ECjjM673ohuxvyQ6uCK41TPlGzKRNokKY84noUgGYnpwc//MW4k2KrOMY19jQ==}
+
+  '@fontsource-variable/red-hat-mono@5.3.0':
+    resolution: {integrity: sha512-/mEvTCcruJY64xRgx1gsmsYuGR7MtOduOsuyeHVJ07p+2gGvCqROauIwaTCcVHL4eBGi+Lns4EUIjrPZLCn5gQ==}
 
   '@fontsource-variable/roboto-flex@5.3.0':
     resolution: {integrity: sha512-bOxckUy0qXNRjhV6e4pcHGSvptix4ZRD1uaj5Za8h+p3qrb2GL4U4TQdpVmPSy0SmqwldfD+JJqEKdF68EyiAw==}
 
   '@fontsource-variable/roboto-serif@5.3.0':
     resolution: {integrity: sha512-MOZEZkrYvhCPuUPsZeWzOeXPlEbfhHUgg7nPIiUWVZnJt3TF2CU1Gpavlf1YIjl0SejsD0OJOExAYXg48D47bw==}
+
+  '@fontsource-variable/rubik@5.3.0':
+    resolution: {integrity: sha512-yQUf8qle24MJYA+EuauyF+cqjjN6I715nGjitt3sGmwZA0XfA4fWJcLq1C/diREZl4Qzn1E80nLMc0ipC/a4Lg==}
+
+  '@fontsource-variable/saira@5.3.0':
+    resolution: {integrity: sha512-C1rm7n1OuEx4Se/SAB/5EeUuCviGFFnYTr5vxuQQm2YIOfgbQWx/P6qqhdXlVCBRm/1UzNWCtDK5jNbVmO6W2w==}
+
+  '@fontsource-variable/shantell-sans@5.3.0':
+    resolution: {integrity: sha512-FPdHvSi6cngE/DMVCm7Xlls70U0b4/NMJLlcAPvVoq6eot1X8tNOZMRc22Rh9KoAfmmBz7yjsSXvpsYmkhXXVQ==}
+
+  '@fontsource-variable/sora@5.3.0':
+    resolution: {integrity: sha512-h8kHta4Z8SkfUGeI82TUy1n3rbrKpBRGwuk4t4qCwto5oEHxlbOFD2yGP+Df5fbmTXwKGn+o667vYp0E4K8Whw==}
 
   '@fontsource-variable/source-sans-3@5.3.0':
     resolution: {integrity: sha512-dpi0GZk7EQe2tYpg6Q0Fx0OmUgnuGu+0rHPgtXqtKhglYmJuP7jZ12Mu1uN+NfRaJRY1Emn8AQJEWzmoZ4wa9g==}
@@ -193,6 +307,9 @@ packages:
 
   '@fontsource-variable/spline-sans-mono@5.3.0':
     resolution: {integrity: sha512-dH/qBj/MCE4ObiuCwlA9X1o3AftMO9dwfFgoRVYjy6VCPYkpWAlEtK/RjeyICgsR8rW763IAQARskVgShBY5JA==}
+
+  '@fontsource-variable/vollkorn@5.3.0':
+    resolution: {integrity: sha512-EYzMw2FGZXrR6oB7A3/pck3HY2ZjIGfoTFIZV5OsXexLu0nqPELuCmOoS7oQiQ6TkNjlQ3UgUIU24tNvxEKzcw==}
 
   '@fontsource-variable/work-sans@5.3.0':
     resolution: {integrity: sha512-le8h/OIIuhm5Z7TdvuMw0yKg2gaCZUiMec8zaumsVVjzeJRBPEF0bQI/MkaZDHCVzZDvZoP/O2LiGOSfDLSbaw==}
@@ -211,6 +328,9 @@ packages:
 
   '@fontsource/libre-baskerville@5.3.0':
     resolution: {integrity: sha512-IA6OLq36/JWMX70Fha15sri2qWsijFh7hgdDXCRZHjKUHtWarLQoiGilvm7iMqm7HiYFEv9acF3+IuRHO9kUiA==}
+
+  '@fontsource/ubuntu@5.3.0':
+    resolution: {integrity: sha512-LsjJXgE430QLs8LKfn1RIFbbdGAiZBU1gao8ASa4Z2kGNGh7lMb7Rzx09v3bLLuuK+3XA/JSLgPWTAbLD6r1fg==}
 
   '@protobufjs/aspromise@1.1.2':
     resolution: {integrity: sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ==}
@@ -318,13 +438,31 @@ packages:
 
 snapshots:
 
+  '@fontsource-variable/anybody@5.3.0': {}
+
   '@fontsource-variable/archivo@5.3.0': {}
 
   '@fontsource-variable/bitter@5.3.0': {}
 
+  '@fontsource-variable/bodoni-moda@5.3.0': {}
+
   '@fontsource-variable/cascadia-mono@5.3.0': {}
 
+  '@fontsource-variable/caveat@5.3.0': {}
+
+  '@fontsource-variable/cormorant@5.3.0': {}
+
   '@fontsource-variable/crimson-pro@5.3.0': {}
+
+  '@fontsource-variable/darker-grotesque@5.3.0': {}
+
+  '@fontsource-variable/dm-sans@5.3.0': {}
+
+  '@fontsource-variable/eb-garamond@5.3.0': {}
+
+  '@fontsource-variable/epilogue@5.3.0': {}
+
+  '@fontsource-variable/figtree@5.3.0': {}
 
   '@fontsource-variable/fira-code@5.3.0': {}
 
@@ -333,6 +471,10 @@ snapshots:
   '@fontsource-variable/inconsolata@5.3.0': {}
 
   '@fontsource-variable/inter@5.3.0': {}
+
+  '@fontsource-variable/jost@5.3.0': {}
+
+  '@fontsource-variable/lexend@5.3.0': {}
 
   '@fontsource-variable/literata@5.3.0': {}
 
@@ -358,11 +500,25 @@ snapshots:
 
   '@fontsource-variable/public-sans@5.3.0': {}
 
+  '@fontsource-variable/quicksand@5.3.0': {}
+
   '@fontsource-variable/raleway@5.3.0': {}
+
+  '@fontsource-variable/recursive@5.3.0': {}
+
+  '@fontsource-variable/red-hat-mono@5.3.0': {}
 
   '@fontsource-variable/roboto-flex@5.3.0': {}
 
   '@fontsource-variable/roboto-serif@5.3.0': {}
+
+  '@fontsource-variable/rubik@5.3.0': {}
+
+  '@fontsource-variable/saira@5.3.0': {}
+
+  '@fontsource-variable/shantell-sans@5.3.0': {}
+
+  '@fontsource-variable/sora@5.3.0': {}
 
   '@fontsource-variable/source-sans-3@5.3.0': {}
 
@@ -371,6 +527,8 @@ snapshots:
   '@fontsource-variable/space-grotesk@5.3.0': {}
 
   '@fontsource-variable/spline-sans-mono@5.3.0': {}
+
+  '@fontsource-variable/vollkorn@5.3.0': {}
 
   '@fontsource-variable/work-sans@5.3.0': {}
 
@@ -383,6 +541,8 @@ snapshots:
   '@fontsource/ibm-plex-serif@5.3.0': {}
 
   '@fontsource/libre-baskerville@5.3.0': {}
+
+  '@fontsource/ubuntu@5.3.0': {}
 
   '@protobufjs/aspromise@1.1.2': {}
 
