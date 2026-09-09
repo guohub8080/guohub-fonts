@@ -18,6 +18,16 @@ import { fileURLToPath } from 'node:url';
 // 每族每样式的「最全轴组合」文件（由 fontTools 从 woff2 fvar 表提取，scripts/extract-axes 生成）
 const AXES_DATA = JSON.parse(readFileSync(new URL('../scripts/axes.json', import.meta.url), 'utf8'));
 
+// 官方 category（fontsource metadata 提取）与 category → 通用回退栈（简中场景）
+const CATEGORIES = JSON.parse(readFileSync(new URL('../scripts/categories.json', import.meta.url), 'utf8'));
+const FALLBACK_STACKS = {
+  'sans-serif': 'system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif',
+  'serif': 'Georgia, "Songti SC", SimSun, serif',
+  'monospace': 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
+  'display': 'system-ui, sans-serif',
+  'handwriting': '"Comic Sans MS", cursive',
+};
+
 /** 字族清单：dir 产物目录名（= 规范 family 名），pkg npm 包名
  *  keepSubsets：只保留这些 subset 的分片（fontsource 分片名形如 {font}-{subset}-{axis}-{style}.woff2）。
  *  中文站场景 latin/latin-ext 足够；需要西里尔/希腊等再放宽。 */
@@ -150,7 +160,13 @@ for (const { dir, pkg } of FONTS) {
     merged.replace(/font-family:\s*'[^']+';/g, `font-family: '${dir}';`),
     dir,
   );
-  await writeFile(`${outDir}/${dir}.css`, css, 'utf8');
+  // 4) 注入 fallback 栈注释头（category 取自 fontsource metadata → scripts/categories.json）
+  const cat = CATEGORIES[dir.endsWith('-v') ? dir.slice(0, -2) : dir];
+  const fallback = cat ? FALLBACK_STACKS[cat] : undefined;
+  const header = fallback
+    ? `/* fallback 栈（按官方 category=${cat} 生成）：font-family: '${dir}', ${fallback}; */\n`
+    : '';
+  await writeFile(`${outDir}/${dir}.css`, header + css, 'utf8');
 
   const shards = copied;
   results.push({ dir, status: '完成', detail: `${cssFiles.length} 个 css 合并，${shards} 个分片` });

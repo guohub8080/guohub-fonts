@@ -1,0 +1,287 @@
+{
+ "anybody-v": {
+  "category": "display",
+  "fallback": "system-ui, sans-serif",
+  "css": "english/anybody-v/anybody-v.css"
+ },
+ "archivo-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/archivo-v/archivo-v.css"
+ },
+ "bitter-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/bitter-v/bitter-v.css"
+ },
+ "bodoni-moda-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/bodoni-moda-v/bodoni-moda-v.css"
+ },
+ "cascadia-mono-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/cascadia-mono-v/cascadia-mono-v.css"
+ },
+ "caveat-v": {
+  "category": "handwriting",
+  "fallback": "\"Comic Sans MS\", cursive",
+  "css": "english/caveat-v/caveat-v.css"
+ },
+ "cormorant-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/cormorant-v/cormorant-v.css"
+ },
+ "crimson-pro-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/crimson-pro-v/crimson-pro-v.css"
+ },
+ "darker-grotesque-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/darker-grotesque-v/darker-grotesque-v.css"
+ },
+ "dm-sans-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/dm-sans-v/dm-sans-v.css"
+ },
+ "dm-serif-display": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/dm-serif-display/dm-serif-display.css"
+ },
+ "eb-garamond-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/eb-garamond-v/eb-garamond-v.css"
+ },
+ "epilogue-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/epilogue-v/epilogue-v.css"
+ },
+ "figtree-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/figtree-v/figtree-v.css"
+ },
+ "fira-code-v": {
+  "category": "monospace",
+  "fallback": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+  "css": "english/fira-code-v/fira-code-v.css"
+ },
+ "fraunces-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/fraunces-v/fraunces-v.css"
+ },
+ "ibm-plex-mono": {
+  "category": "monospace",
+  "fallback": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+  "css": "english/ibm-plex-mono/ibm-plex-mono.css"
+ },
+ "ibm-plex-sans": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/ibm-plex-sans/ibm-plex-sans.css"
+ },
+ "ibm-plex-serif": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/ibm-plex-serif/ibm-plex-serif.css"
+ },
+ "inconsolata-v": {
+  "category": "monospace",
+  "fallback": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+  "css": "english/inconsolata-v/inconsolata-v.css"
+ },
+ "inter-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/inter-v/inter-v.css"
+ },
+ "jost-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/jost-v/jost-v.css"
+ },
+ "lexend-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/lexend-v/lexend-v.css"
+ },
+ "libre-baskerville": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/libre-baskerville/libre-baskerville.css"
+ },
+ "literata-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/literata-v/literata-v.css"
+ },
+ "manrope-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/manrope-v/manrope-v.css"
+ },
+ "martian-mono-v": {
+  "category": "monospace",
+  "fallback": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+  "css": "english/martian-mono-v/martian-mono-v.css"
+ },
+ "montserrat-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/montserrat-v/montserrat-v.css"
+ },
+ "newsreader-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/newsreader-v/newsreader-v.css"
+ },
+ "noto-sans-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/noto-sans-v/noto-sans-v.css"
+ },
+ "noto-serif-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/noto-serif-v/noto-serif-v.css"
+ },
+ "open-sans-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/open-sans-v/open-sans-v.css"
+ },
+ "oswald-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/oswald-v/oswald-v.css"
+ },
+ "outfit-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/outfit-v/outfit-v.css"
+ },
+ "plus-jakarta-sans-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/plus-jakarta-sans-v/plus-jakarta-sans-v.css"
+ },
+ "public-sans-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/public-sans-v/public-sans-v.css"
+ },
+ "quicksand-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/quicksand-v/quicksand-v.css"
+ },
+ "raleway-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/raleway-v/raleway-v.css"
+ },
+ "recursive-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/recursive-v/recursive-v.css"
+ },
+ "red-hat-mono-v": {
+  "category": "monospace",
+  "fallback": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+  "css": "english/red-hat-mono-v/red-hat-mono-v.css"
+ },
+ "roboto-flex-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/roboto-flex-v/roboto-flex-v.css"
+ },
+ "roboto-serif-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/roboto-serif-v/roboto-serif-v.css"
+ },
+ "rubik-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/rubik-v/rubik-v.css"
+ },
+ "saira-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/saira-v/saira-v.css"
+ },
+ "shantell-sans-v": {
+  "category": "display",
+  "fallback": "system-ui, sans-serif",
+  "css": "english/shantell-sans-v/shantell-sans-v.css"
+ },
+ "sora-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/sora-v/sora-v.css"
+ },
+ "source-sans-3-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/source-sans-3-v/source-sans-3-v.css"
+ },
+ "source-serif-4-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/source-serif-4-v/source-serif-4-v.css"
+ },
+ "space-grotesk-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/space-grotesk-v/space-grotesk-v.css"
+ },
+ "spline-sans-mono-v": {
+  "category": "monospace",
+  "fallback": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+  "css": "english/spline-sans-mono-v/spline-sans-mono-v.css"
+ },
+ "ubuntu": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/ubuntu/ubuntu.css"
+ },
+ "vollkorn-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/vollkorn-v/vollkorn-v.css"
+ },
+ "work-sans-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "english/work-sans-v/work-sans-v.css"
+ },
+ "minsans-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "cjk/minsans/result.css"
+ },
+ "syht-cn-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "cjk/syht-cn/result.css"
+ },
+ "syst-cn-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "cjk/syst-cn/result.css"
+ },
+ "smiley-sans": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+  "css": "cjk/smiley-sans/smiley-sans.css"
+ }
+}

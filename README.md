@@ -44,6 +44,16 @@ code { font-family: 'cascadia-mono-v', monospace; }
 
 `{前缀}/fonts.css` 引入全部 61 族（如 `https://guohub-fonts.pages.dev/fonts.css`）——只适合调试，**不要在生产用**（注册了所有族的 CSS 元数据）。
 
+### fallback 栈：不用自己配
+
+每个族该配什么回退字体，**主仓库已按官方 category 生成好**，两种获取方式：
+
+1. **人读**：每个族 CSS 的第一行注释就是完整可复制的栈，如 `english/fraunces-v/fraunces-v.css` 首行：
+   `/* fallback 栈（按官方 category=serif 生成）：font-family: 'fraunces-v', Georgia, "Songti SC", SimSun, serif; */`
+2. **机器读**：仓库根的 [`families.json`](families.json)——61 族的 `{category, fallback, css 路径}` 清单，CDN 直链 `{前缀}/families.json`。
+
+加载期间的表现由 CSS 自带的 `font-display: swap` 兜底：字体未就绪时浏览器先用回退栈渲染，就绪后无缝替换——这就是「自动 fallback」，无需任何 JS。
+
 ### 多轴字体的用法（VF 进阶）
 
 多轴族（如 Roboto Flex 13 轴、Fraunces 的 SOFT/WONK）用 `font-variation-settings` 调轴：
