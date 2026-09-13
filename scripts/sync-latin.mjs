@@ -84,6 +84,7 @@ const FONTS = [
   { dir: 'shantell-sans-v', pkg: '@fontsource-variable/shantell-sans' },
   { dir: 'darker-grotesque-v', pkg: '@fontsource-variable/darker-grotesque' },
   // ---- 静态字重（无 VF 发行，不带 -v） ----
+  { dir: 'gentium-book-plus', pkg: '@fontsource/gentium-book-plus', subsets: ['latin', 'latin-ext', 'greek'] }, // 语言学 IPA 标准字体（音标专用；greek 分片覆盖 θ/ð 等音标借形字符）
   { dir: 'ubuntu', pkg: '@fontsource/ubuntu' },
   { dir: 'ibm-plex-sans', pkg: '@fontsource/ibm-plex-sans' },
   { dir: 'ibm-plex-serif', pkg: '@fontsource/ibm-plex-serif' },
@@ -93,7 +94,8 @@ const FONTS = [
 ];
 
 const KEEP_SUBSETS = ['latin', 'latin-ext'];
-const isKept = (filename) => KEEP_SUBSETS.some((s) => filename.includes(`-${s}-`));
+// 每族可用 subsets 字段覆盖（如 Gentium 需要 greek 分片覆盖 IPA 用的 θ）
+const isKept = (filename, subsets = KEEP_SUBSETS) => subsets.some((s) => filename.includes(`-${s}-`));
 
 /** 从 fontsource 文件名解析样式与轴组合段：{font}-{subset}-{combo}-{style}.woff2（从尾部数） */
 function parseFileMeta(name) {
@@ -132,20 +134,20 @@ function keepFullestAxes(css, dir) {
 
 const results = [];
 
-for (const { dir, pkg } of FONTS) {
+for (const { dir, pkg, subsets } of FONTS) {
   const src = `node_modules/${pkg}`;
   if (!existsSync(src)) {
     results.push({ dir, status: '跳过', detail: `包未安装：${pkg}` });
     continue;
   }
 
-  // 1) 拷贝分片文件（只保留 KEEP_SUBSETS 命中的 latin 系分片）
+  // 1) 拷贝分片文件（只保留 KEEP_SUBSETS 命中的 latin 系分片；可用任务级 subsets 覆盖）
   const outDir = `english/${dir}`;
   await rm(outDir, { recursive: true, force: true });
   await mkdir(`${outDir}/files`, { recursive: true });
   let copied = 0;
   for (const f of await readdir(`${src}/files`)) {
-    if (!f.endsWith('.woff2') || !isKept(f)) continue;
+    if (!f.endsWith('.woff2') || !isKept(f, subsets)) continue;
     await cp(`${src}/files/${f}`, `${outDir}/files/${f}`);
     copied++;
   }

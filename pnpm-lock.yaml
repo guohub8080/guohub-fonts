@@ -161,6 +161,9 @@ importers:
       '@fontsource/dm-serif-display':
         specifier: ^5.3.0
         version: 5.3.0
+      '@fontsource/gentium-book-plus':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource/ibm-plex-mono':
         specifier: ^5.3.0
         version: 5.3.0
@@ -334,6 +337,9 @@ packages:
 
   '@fontsource/dm-serif-display@5.3.0':
     resolution: {integrity: sha512-ecRclUcYeto9fB7ghkB36H4MtUoaUYFjjornWYYeLCMHzaWEDPk2kIWgZOq0mKBNRxclRSieKcFeLonlMYDTKg==}
+
+  '@fontsource/gentium-book-plus@5.3.0':
+    resolution: {integrity: sha512-FlcH8CWew00pv2w/o18pjpoz5PU7ETukXwnBqb7uhDXvlaEalXfAXP4TlXh+QlNrVkebALgfzhDLGV5sDNOSLg==}
 
   '@fontsource/ibm-plex-mono@5.3.0':
     resolution: {integrity: sha512-eTgnZjZEGk1QtD3ZstF+Vclo2HLAni8YMy34/DxllwZvyz1lR/1RF/xTiAquOBO7MvqBx8D2Ig2WCPMVfdZu7Q==}
@@ -557,6 +563,8 @@ snapshots:
   '@fontsource-variable/work-sans@5.3.0': {}
 
   '@fontsource/dm-serif-display@5.3.0': {}
+
+  '@fontsource/gentium-book-plus@5.3.0': {}
 
   '@fontsource/ibm-plex-mono@5.3.0': {}
 

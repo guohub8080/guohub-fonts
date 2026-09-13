@@ -283,5 +283,10 @@
   "category": "sans-serif",
   "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
   "css": "cjk/smiley-sans/smiley-sans.css"
+ },
+ "gentium-book-plus": {
+  "category": "serif",
+  "fallback": "Georgia, \"Songti SC\", SimSun, serif",
+  "css": "english/gentium-book-plus/gentium-book-plus.css"
  }
 }
