@@ -157,11 +157,23 @@ for (const { dir, pkg, subsets } of FONTS) {
   let merged = '';
   for (const f of cssFiles) merged += `\n/* ${f} */\n` + (await readFile(`${src}/${f}`, 'utf8'));
 
-  // 3) family 名重写为规范名（全小写、连字符、VF 带 -v），并只保留最全轴组合的声明
-  const css = keepFullestAxes(
-    merged.replace(/font-family:\s*'[^']+';/g, `font-family: '${dir}';`),
-    dir,
-  );
+  // 3) family 名重写为规范名（全小写、连字符、VF 带 -v），只保留最全轴组合声明，
+  //    并剔除引用了未拷贝分片的 @font-face 块——文件按 KEEP_SUBSETS 过滤（cyrillic/vietnamese
+  //    等不拷），CSS 若保留对应块，其 unicode-range 一旦被页面字符命中就会请求 404/HTML 回退页，
+  //    触发浏览器的 OTS 解码报错并回落系统字体（本仓库曾整批族踩中）
+  const rewritten = merged.replace(/font-family:\s*'[^']+';/g, `font-family: '${dir}';`);
+  const keptFiles = new Set(await readdir(`${outDir}/files`));
+  const dropDangling = (cssText) => {
+    const blocks = cssText.match(/@font-face\s*\{[^}]*\}/g) ?? [];
+    return blocks
+      .filter((b) => {
+        const m = b.match(/url\((?:\.?\/)?files\/([^)]+\.woff2)\)/);
+        if (!m) return true; // 无本地引用的块原样保留
+        return keptFiles.has(m[1]);
+      })
+      .join('\n');
+  };
+  const css = dropDangling(keepFullestAxes(rewritten, dir));
   // 4) 注入 fallback 栈注释头（category 取自 fontsource metadata → scripts/categories.json）
   const cat = CATEGORIES[dir.endsWith('-v') ? dir.slice(0, -2) : dir];
   const fallback = cat ? FALLBACK_STACKS[cat] : undefined;
