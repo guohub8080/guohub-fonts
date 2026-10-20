@@ -34,11 +34,29 @@
     },
     {
       "type": "split",
+      "name": "syht-jp",
+      "label": "思源黑体 JP VF v2.005（SIL OFL，日文区域版可变字体单文件）",
+      "source": "sources/cjk/SourceHanSansJP-VF.otf",
+      "outDir": "cjk/syht-jp",
+      "family": "syht-jp-v",
+      "download": "https://github.com/adobe-fonts/source-han-sans/releases"
+    },
+    {
+      "type": "split",
       "name": "syst-cn",
       "label": "思源宋体 CN VF v2.003（SIL OFL，区域版可变字体单文件）",
       "source": "sources/cjk/SourceHanSerifCN-VF.otf",
       "outDir": "cjk/syst-cn",
       "family": "syst-cn-v",
+      "download": "https://github.com/adobe-fonts/source-han-serif/releases"
+    },
+    {
+      "type": "split",
+      "name": "syst-jp",
+      "label": "思源宋体 JP VF v2.003（SIL OFL，日文区域版可变字体单文件）",
+      "source": "sources/cjk/SourceHanSerifJP-VF.otf",
+      "outDir": "cjk/syst-jp",
+      "family": "syst-jp-v",
       "download": "https://github.com/adobe-fonts/source-han-serif/releases"
     },
     {

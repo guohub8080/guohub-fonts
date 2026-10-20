@@ -4,7 +4,9 @@
 /* ---- CJK ---- */
 @import url('./cjk/minsans/result.css');
 @import url('./cjk/syht-cn/result.css');
+@import url('./cjk/syht-jp/result.css');
 @import url('./cjk/syst-cn/result.css');
+@import url('./cjk/syst-jp/result.css');
 @import url('./cjk/smiley-sans/smiley-sans.css');
 /* ---- 等宽 ---- */
 @import url('./english/jb-mono/jb-mono.css');

@@ -6,3 +6,4 @@ sources/**/*.ttc
 sources/**/*.woff
 sources/**/*.woff2
 .DS_Store
+.r2-manifest.json

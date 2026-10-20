@@ -1,12 +1,12 @@
 # guohub-fonts
 
-guohub 的个人 web 字体库（跨项目通用）：**61 个字族 / 50 个可变字体（VF）**，CJK 分片 + fontsource 同步，多 CDN 四层自动降级分发。任何人、任何项目都可以直接通过下面的 URL 消费，**不需要 clone 本仓库、不需要构建**。
+guohub 的个人 web 字体库（跨项目通用）：**63 个字族 / 52 个可变字体（VF）**，CJK 分片 + fontsource 同步，多 CDN 五层自动降级分发。任何人、任何项目都可以直接通过下面的 URL 消费，**不需要 clone 本仓库、不需要构建**。
 
 ## 怎么消费（使用方指南）
 
 ### 方式一：一行 CSS 引入单族（最简单）
 
-在 HTML `<head>` 加一条 `<link>`，或 CSS 里 `@import`。四层 URL 内容完全相同，任选其一：
+在 HTML `<head>` 加一条 `<link>`，或 CSS 里 `@import`。五层 URL 内容完全相同，任选其一：
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guohub8080/guohub-fonts@v1.2/english/inter-v/inter-v.css">
@@ -14,6 +14,7 @@ guohub 的个人 web 字体库（跨项目通用）：**61 个字族 / 50 个可
 
 | 源 | URL 前缀 | 特点 |
 |---|---|---|
+| R2 自有域名 | `https://assets.guohub.top/font/` | **首选**：自有域名走 Cloudflare 边缘，缓存语义自控，域名归自己 |
 | jsDelivr 主域 | `https://cdn.jsdelivr.net/gh/guohub8080/guohub-fonts@v1.2/` | 海外最快；tag 永久缓存 |
 | jsDelivr 大陆优化域 | `https://fastly.jsdelivr.net/gh/guohub8080/guohub-fonts@v1.2/` | **大陆用户推荐** |
 | Cloudflare Pages | `https://guohub-fonts.pages.dev/` | 独立冗余，跟 main 分支 |
@@ -38,11 +39,11 @@ code { font-family: 'cascadia-mono-v', monospace; }
 
 ### 方式二：多源自动降级（生产推荐）
 
-单源可能抽风（尤其大陆访问 jsDelivr 主域）。guookcase 主仓库的懒加载器把四层做成 `onerror` 自动降级链，可直接抄：[`webfontLoader.ts`](https://github.com/guohub8080/guookcase/blob/main/src/dev/store/useGlobalSettings/webfontLoader.ts)。核心逻辑 20 行：注入 `<link>` → 失败自动换下一个源 → 全部失败回落系统字体（`font-display: swap` 保证渲染不受影响）。
+单源可能抽风（尤其大陆访问 jsDelivr 主域）。guookcase 主仓库的懒加载器把五层做成 `onerror` 自动降级链，可直接抄：[`webfontLoader.ts`](https://github.com/guohub8080/guookcase/blob/main/src/dev/store/useGlobalSettings/webfontLoader.ts)。核心逻辑 20 行：注入 `<link>` → 失败自动换下一个源 → 全部失败回落系统字体（`font-display: swap` 保证渲染不受影响）。
 
 ### 方式三：全量入口（调试/预览用）
 
-`{前缀}/fonts.css` 引入全部 61 族（如 `https://guohub-fonts.pages.dev/fonts.css`）——只适合调试，**不要在生产用**（注册了所有族的 CSS 元数据）。
+`{前缀}/fonts.css` 引入全部 63 族（如 `https://guohub-fonts.pages.dev/fonts.css`）——只适合调试，**不要在生产用**（注册了所有族的 CSS 元数据）。
 
 ### fallback 栈：不用自己配
 
@@ -50,7 +51,7 @@ code { font-family: 'cascadia-mono-v', monospace; }
 
 1. **人读**：每个族 CSS 的第一行注释就是完整可复制的栈，如 `english/fraunces-v/fraunces-v.css` 首行：
    `/* fallback 栈（按官方 category=serif 生成）：font-family: 'fraunces-v', Georgia, "Songti SC", SimSun, serif; */`
-2. **机器读**：仓库根的 [`families.json`](families.json)——61 族的 `{category, fallback, css 路径}` 清单，CDN 直链 `{前缀}/families.json`。
+2. **机器读**：仓库根的 [`families.json`](families.json)——63 族的 `{category, fallback, css 路径}` 清单，CDN 直链 `{前缀}/families.json`。
 
 加载期间的表现由 CSS 自带的 `font-display: swap` 兜底：字体未就绪时浏览器先用回退栈渲染，就绪后无缝替换——这就是「自动 fallback」，无需任何 JS。
 
@@ -71,11 +72,12 @@ code { font-family: 'cascadia-mono-v', monospace; }
 
 - jsDelivr 两层**必须引用 tag**（`@v1.2`）：tag 永久不可变缓存。**不要用 `@main`**（只缓存 12 小时且不可控）；
 - Pages 两层跟 main 分支，更新即时；
+- R2 层（assets.guohub.top）随发布脚本 `node scripts/upload-r2.mjs` 同步（增量清单，只传变化文件），更新即时；
 - 升级字体后我会 bump 新 tag（v1.3、v1.4…），你把 URL 里的 `@v1.2` 改成新 tag 即完成升级。
 
 ## 预览 / 自检
 
-浏览器打开任一源的 `/index.html`（如 [guohub-fonts.pages.dev](https://guohub-fonts.pages.dev/)）：61 族样张 + 每卡字重/每轴滑杆 + 字号控制 + 许可徽章 + 官网出处。**全部正常渲染 = 该 CDN 节点可用**。
+浏览器打开任一源的 `/index.html`（如 [guohub-fonts.pages.dev](https://guohub-fonts.pages.dev/)）：63 族样张 + 每卡字重/每轴滑杆 + 字号控制 + 许可徽章 + 官网出处。**全部正常渲染 = 该 CDN 节点可用**。
 
 ## 目录结构（按风格分区）
 
@@ -84,16 +86,17 @@ cjk/        中日韩字族（cn-font-split 分片：result.css + {family}-v-{n}
 english/    拉丁字族（fontsource 分片：{族名}.css + files/*.woff2），内部按风格排序见 index.html
 symbols/    符号字族（预留；音乐记谱字体有意留在使用方仓库）
 sources/    源字体（不进 git；下载地址与版本锚点在 fonts.config.json）
-scripts/    build.mjs（CJK 分片）、sync-latin.mjs（拉丁同步+最全轴组合过滤）、axes.json（轴定义）
+scripts/    build.mjs（CJK 分片）、sync-latin.mjs（拉丁同步+最全轴组合过滤）、axes.json（轴定义）、upload-r2.mjs（R2 增量上传）
 index.html  预览/自检页（深色 specimen，交互式字重/轴/字号）
 fonts.css   全量入口（调试用）
 ```
 
-## 字体清单与许可（61 族 / 50 VF）
+## 字体清单与许可（63 族 / 52 VF）
 
 | 分区 | 字族 | 许可证 |
 |---|---|---|
 | CJK | `minsans-v`（MiSans VF v4.009）、`syht-cn-v`（思源黑体 CN VF v2.005）、`syst-cn-v`（思源宋体 CN VF v2.003）——分片 | MiSans ⚠️ 免费商用见条款；思源 SIL OFL ✅ |
+| CJK | `syht-jp-v`（思源黑体 JP VF v2.005）、`syst-jp-v`（思源宋体 JP VF v2.003）——日文区域版分片 | SIL OFL ✅ |
 | CJK | `smiley-sans`（得意黑 v2.0.1，静态直存） | SIL OFL ✅ |
 | 等宽 | `jb-mono`、`cascadia-mono-v`、`fira-code-v`、`inconsolata-v`、`martian-mono-v`、`spline-sans-mono-v`、`red-hat-mono-v`、`ibm-plex-mono`（静态） | SIL OFL ✅ |
 | Sans VF | `inter-v`、`source-sans-3-v`、`noto-sans-v`、`roboto-flex-v`（13 轴）、`open-sans-v`、`montserrat-v`、`raleway-v`、`manrope-v`、`space-grotesk-v`、`outfit-v`、`plus-jakarta-sans-v`、`oswald-v`、`archivo-v`、`public-sans-v`、`work-sans-v`、`rubik-v`、`dm-sans-v`、`figtree-v`、`lexend-v`、`sora-v`、`jost-v`、`quicksand-v`、`saira-v`、`epilogue-v`、`anybody-v` | SIL OFL ✅ |
@@ -101,7 +104,7 @@ fonts.css   全量入口（调试用）
 | 特色 VF | `recursive-v`（五轴）、`shantell-sans-v`、`caveat-v`、`darker-grotesque-v` | SIL OFL ✅ |
 | 静态 | `ubuntu`（UFL，官方无 VF）、`ibm-plex-sans`、`ibm-plex-serif`、`libre-baskerville`、`dm-serif-display` | UFL / SIL OFL ✅ |
 
-> 命名规范：目录名 = CSS family 名，全小写、连字符；**VF 以 `-v` 结尾**，静态不带。61/61 免费可商用。
+> 命名规范：目录名 = CSS family 名，全小写、连字符；**VF 以 `-v` 结尾**，静态不带。63/63 免费可商用。
 > 微软 Consolas 等专有字体**禁止**加入本仓库。
 
 ## 分片策略（fonts.config.json）
@@ -115,4 +118,4 @@ fonts.css   全量入口（调试用）
 **CJK**：源字体放 `sources/cjk/` → `fonts.config.json` 加 `split` 任务 → `node scripts/build.mjs`。
 **拉丁**：`pnpm add -D <fontsource 包>` → `scripts/sync-latin.mjs` 的 `FONTS` 加一行 → `node scripts/sync-latin.mjs`（自动重写 family 名为规范名 + 只留最全轴组合）。新多轴族需重跑 `scripts/axes.json` 提取。
 
-**发布**：commit → bump 新 tag → `git push origin main --tags` → 通知使用方改 tag。
+**发布**：commit → `node scripts/upload-r2.mjs`（同步 R2 层）→ bump 新 tag → `git push origin main --tags` → 通知使用方改 tag。

@@ -4,9 +4,9 @@
 
 ## 仓库定位与核心原则
 
-**产物直接进 git，零构建部署。** 仓库内容 = 站点内容：push 后 jsDelivr / GitHub Pages / Cloudflare Pages 原样分发，任何一层都**不跑 Build**。这是「四个 CDN 即插即用」的前提，不要改成「源码进 git + 部署时构建」的形态（会让 jsDelivr 两层失效）。
+**产物直接进 git，零构建部署。** 仓库内容 = 站点内容：push 后 jsDelivr / GitHub Pages / Cloudflare Pages 原样分发；第五层 R2（`assets.guohub.top/font/`，桶 `guohub-assets` 的 `font/` 前缀）用 `node scripts/upload-r2.mjs` 增量同步（sha1 清单 `.r2-manifest.json`，gitignore）。任何一层都**不跑 Build**。这是「五层 CDN 即插即用」的前提，不要改成「源码进 git + 部署时构建」的形态（会让 jsDelivr 两层失效）。
 
-使用方（如 guookcase）不复制任何字体文件，只按 CDN URL 引用，详见其 `src/dev/store/useGlobalSettings/webfontLoader.ts`（按族懒加载 + 四层自动降级）。
+使用方不复制任何字体文件，只按 CDN URL 引用（各自项目里按族懒加载 + 五层自动降级）。
 
 ## 命令
 
@@ -40,6 +40,7 @@ english/    拉丁/等宽字族（fontsource 分片：{族名}.css + files/*.wof
 symbols/    符号字族（预留，见其 README——NoteText 音乐字体有意留在使用方仓库）
 sources/    源字体（.gitignore 全部字体格式，不进 git；下载地址在 fonts.config.json）
 scripts/    build.mjs（CJK 分片）、sync-latin.mjs（拉丁同步 + 最全轴组合过滤）、
+            upload-r2.mjs（R2 增量上传，发布流程必跑）、
             axes.json（各族轴定义，fontTools 从 woff2 fvar 表提取，权威）
 index.html  预览页（深色 specimen：61 族样张 + 字重/每轴/字号交互滑杆 + 许可徽章 + 官网出处）
 ```
@@ -69,8 +70,9 @@ index.html  预览页（深色 specimen：61 族样张 + 字重/每轴/字号交
 jsDelivr 两层引用 `@tag`（**永久不可变缓存**）；GitHub Pages / Cloudflare Pages 跟随 `main`。因此：
 
 1. 改产物 → commit；
-2. **bump 新 tag**（v1.1 → v1.2 → …，新增/修改均 bump；tag 一经 push 即冻结、绝不重指）→ `git push origin main --tags`；
-3. 通知使用方把 `webfontLoader.ts` 里的 `@v1.1` 改成新 tag。
+2. `node scripts/upload-r2.mjs` 同步 R2 层（增量；需本机 wrangler 已 login，未登录跑 `npx wrangler@4.133.0 login`）；
+3. **bump 新 tag**（v1.1 → v1.2 → …，新增/修改均 bump；tag 一经 push 即冻结、绝不重指）→ `git push origin main --tags`；
+4. 通知使用方把 `webfontLoader.ts` 里的 `@v1.1` 改成新 tag。
 
 ## 许可证红线
 
@@ -84,4 +86,5 @@ jsDelivr 两层引用 `@tag`（**永久不可变缓存**）；GitHub Pages / Clo
 1. 公开仓库 `guohub8080/guohub-fonts`，push 带 `--tags`；
 2. GitHub Settings → Pages → main 分支（兜底层）；
 3. Cloudflare Pages 连仓库：preset=**None**、Build command **留空**、Output directory **`/`**、项目名 `guohub-fonts`；
-4. 验证：`https://guohub-fonts.pages.dev/index.html` 全字族正常渲染。
+4. 验证：`https://guohub-fonts.pages.dev/index.html` 全字族正常渲染；
+5. R2 层（已完成）：桶 `guohub-assets` 绑自定义域名 `assets.guohub.top`（`wrangler r2 bucket domain add guohub-assets --domain assets.guohub.top --zone-id <guohub.top 的 zone id> --min-tls 1.2 -y`）→ `node scripts/upload-r2.mjs` 全量上传 → 验证 `https://assets.guohub.top/font/index.html` 渲染正常。

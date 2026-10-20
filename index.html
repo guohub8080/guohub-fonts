@@ -187,9 +187,15 @@
       <div class="card vf"><div class="fam">syht-cn-v</div><div class="fam-sub">思源黑体 CN VF · v2.005</div>
         <p class="spec" style="font-family:'syht-cn-v',sans-serif">清风徐来，水波不兴</p>
         <p class="spec-sub" style="font-family:'syht-cn-v',sans-serif">Sphinx of black quartz, judge my vow</p></div>
+      <div class="card vf"><div class="fam">syht-jp-v</div><div class="fam-sub">思源黑体 JP VF · v2.005</div>
+        <p class="spec" style="font-family:'syht-jp-v',sans-serif">日本語の組版は、文字の余白に宿る</p>
+        <p class="spec-sub" style="font-family:'syht-jp-v',sans-serif">The quick brown fox jumps over the lazy dog</p></div>
       <div class="card vf"><div class="fam">syst-cn-v</div><div class="fam-sub">思源宋体 CN VF · v2.003</div>
         <p class="spec" style="font-family:'syst-cn-v',serif">落霞与孤鹜齐飞，秋水共长天一色</p>
         <p class="spec-sub" style="font-family:'syst-cn-v',serif">Typography is the craft of endowing human language</p></div>
+      <div class="card vf"><div class="fam">syst-jp-v</div><div class="fam-sub">思源宋体 JP VF · v2.003</div>
+        <p class="spec" style="font-family:'syst-jp-v',serif">春はあけぼの。やうやう白くなりゆく山ぎは</p>
+        <p class="spec-sub" style="font-family:'syst-jp-v',serif">Typography is the craft of endowing human language</p></div>
       <div class="card"><div class="fam">smiley-sans</div><div class="fam-sub">得意黑 · v2.0.1 · 静态</div>
         <p class="spec" style="font-family:'smiley-sans',sans-serif">斜体风格标题字</p>
         <p class="spec-sub" style="font-family:'smiley-sans',sans-serif">Smiley Sans — 手写感的中文标题字体</p></div>
@@ -346,7 +352,7 @@
 </main>
 
 <footer>
-  四层 CDN：cdn.jsdelivr.net@v1.2 → fastly.jsdelivr.net@v1.2 → guohub-fonts.pages.dev → guohub8080.github.io/guohub-fonts<br>
+  五层 CDN：font.guohub.top/font → guohub-fonts.pages.dev → guohub8080.github.io/guohub-fonts → cdn.jsdelivr.net@v1.2 → fastly.jsdelivr.net@v1.2<br>
   命名规范：全小写连字符；VF 以 -v 结尾，静态不带。清单与同步链路见 scripts/sync-latin.mjs / fonts.config.json
 </footer>
 
@@ -355,7 +361,9 @@
   const ORIGINS = {
     'minsans-v': 'https://hyperos.mi.com/font/',
     'syht-cn-v': 'https://github.com/adobe-fonts/source-han-sans/releases',
+    'syht-jp-v': 'https://github.com/adobe-fonts/source-han-sans/releases',
     'syst-cn-v': 'https://github.com/adobe-fonts/source-han-serif/releases',
+    'syst-jp-v': 'https://github.com/adobe-fonts/source-han-serif/releases',
     'smiley-sans': 'https://github.com/atelier-anchor/smiley-sans/releases',
     'jb-mono': 'https://www.jetbrains.com/lp/mono/',
     'cascadia-mono-v': 'https://github.com/microsoft/cascadia-code/releases',

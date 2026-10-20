@@ -274,10 +274,20 @@
   "fallback": "system-ui, -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
   "css": "cjk/syht-cn/result.css"
  },
+ "syht-jp-v": {
+  "category": "sans-serif",
+  "fallback": "system-ui, -apple-system, \"Hiragino Sans\", \"Yu Gothic\", \"Meiryo\", sans-serif",
+  "css": "cjk/syht-jp/result.css"
+ },
  "syst-cn-v": {
   "category": "serif",
   "fallback": "Georgia, \"Songti SC\", SimSun, serif",
   "css": "cjk/syst-cn/result.css"
+ },
+ "syst-jp-v": {
+  "category": "serif",
+  "fallback": "Georgia, \"Hiragino Mincho ProN\", \"Yu Mincho\", \"MS PMincho\", serif",
+  "css": "cjk/syst-jp/result.css"
  },
  "smiley-sans": {
   "category": "sans-serif",
